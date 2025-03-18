@@ -17,13 +17,13 @@ const About = () => {
           <FadeInUp delay={100}>
             <div className="glass p-6 md:p-8 rounded-xl">
               <p className="text-lg leading-relaxed mb-4">
-                Bienvenue sur mon portfolio ! Je suis Younes El Mourabit, développeur passionné par la création de solutions numériques innovantes et adaptées aux besoins des utilisateurs.
+                👋 Salut, moi c'est Youne
               </p>
               <p className="text-lg leading-relaxed mb-4">
-                Mon parcours m'a permis d'acquérir une expertise en développement d'applications web et mobiles, en utilisant des technologies modernes pour créer des expériences utilisateur intuitives et performantes.
+                Je suis actuellement étudiant au lycée Léonard de Vinci 🗺️ en deuxième année de BTS SIO (Services Informatiques aux Organisations) dans l'option SLAM (Solutions Logicielles et Applications Mé
               </p>
               <p className="text-lg leading-relaxed">
-                Je m'efforce constamment d'améliorer mes compétences techniques et de me tenir au courant des dernières tendances en matière de développement, afin de proposer les meilleures solutions possibles.
+                Toujours en cours d'étude 🎓, je vous propose sur ce portfolio de découvrir les différentes études et projets professionnels que j'ai entrepris au cours de ma carrière.
               </p>
             </div>
           </FadeInUp>
