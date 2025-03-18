@@ -17,19 +17,6 @@ const Hero = () => {
               Bienvenue sur mon Portfolio
             </h2>
           </FadeIn>
-          
-          <FadeInUp delay={100}>
-            <h1 className="heading-xl mb-6">
-              Développeur de solutions numériques <span className="text-primary">innovantes</span>
-            </h1>
-          </FadeInUp>
-          
-          <FadeInUp delay={200}>
-            <p className="text-lg md:text-xl text-foreground/70 mb-8 leading-relaxed">
-              Passionné de développement d'applications et de services informatiques, 
-              je mets en œuvre des solutions techniques adaptées aux besoins des utilisateurs.
-            </p>
-          </FadeInUp>
         </div>
       </div>
       
