@@ -35,7 +35,7 @@ const Header = () => {
             href="#home" 
             className="font-display text-xl font-bold tracking-tight transition-opacity hover:opacity-80"
           >
-            <span className="text-primary">BTS</span> SIO Portfolio
+            <span className="text-primary">Younes</span> El Mourabit
           </a>
           
           {/* Desktop Navigation */}
