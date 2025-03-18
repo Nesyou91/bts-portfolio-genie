@@ -11,9 +11,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-3xl mx-auto text-center">
           <FadeIn>
-            <span className="chip bg-primary/10 text-primary mb-4">
-              BTS SIO - Services Informatiques aux Organisations
-            </span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 animate-pulse">
+              <span className="text-primary">Younes el mourabit</span>
+              <br />
+              Bienvenue sur mon Portfolio
+            </h2>
           </FadeIn>
           
           <FadeInUp delay={100}>
