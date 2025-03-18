@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { FadeInUp } from './Transitions';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, LucideIcon } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const ContactCard = ({ 
@@ -11,7 +11,7 @@ const ContactCard = ({
   link,
   delay = 0
 }: { 
-  icon: React.FC<{ size?: number, className?: string }>;
+  icon: LucideIcon;
   title: string;
   info: string;
   link?: string;

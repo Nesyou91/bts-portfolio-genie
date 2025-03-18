@@ -30,17 +30,6 @@ const Hero = () => {
               je mets en œuvre des solutions techniques adaptées aux besoins des utilisateurs.
             </p>
           </FadeInUp>
-
-          <FadeInUp delay={300}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#projects" className="button-primary">
-                Découvrir mes projets
-              </a>
-              <a href="#contact" className="button-secondary">
-                Me contacter
-              </a>
-            </div>
-          </FadeInUp>
         </div>
       </div>
       
