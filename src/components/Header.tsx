@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +18,7 @@ const Header = () => {
 
   const navLinks = [
     { name: "Accueil", href: "#home" },
+    { name: "A propos", href: "#about", icon: <User size={16} className="mr-1" /> },
     { name: "Compétences", href: "#skills" },
     { name: "Projets", href: "#projects" },
     { name: "Formation", href: "#education" },
@@ -44,8 +45,9 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 text-sm font-medium"
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 text-sm font-medium flex items-center"
               >
+                {link.icon && link.icon}
                 {link.name}
               </a>
             ))}
@@ -81,9 +83,10 @@ const Header = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-200 text-xl font-medium"
+              className="text-foreground/80 hover:text-primary transition-colors duration-200 text-xl font-medium flex items-center"
               onClick={() => setIsOpen(false)}
             >
+              {link.icon && link.icon}
               {link.name}
             </a>
           ))}
