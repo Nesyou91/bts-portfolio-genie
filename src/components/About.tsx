@@ -17,7 +17,7 @@ const About = () => {
           <FadeInUp delay={100}>
             <div className="glass p-6 md:p-8 rounded-xl">
               <p className="text-lg leading-relaxed mb-4">
-                👋 Salut, moi c'est Youne
+                👋 Salut, moi c'est Younes
               </p>
               <p className="text-lg leading-relaxed mb-4">
                 Je suis actuellement étudiant au lycée Léonard de Vinci 🗺️ en deuxième année de BTS SIO (Services Informatiques aux Organisations) dans l'option SLAM (Solutions Logicielles et Applications Mé

@@ -1,6 +1,6 @@
-
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
 import { Medal, GraduationCap, Briefcase, Calendar } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 const TimelineItem = ({ 
   icon: Icon, 
@@ -10,7 +10,7 @@ const TimelineItem = ({
   description,
   delay = 0
 }: { 
-  icon: React.FC<{ size?: number, className?: string }>;
+  icon: LucideIcon;
   title: string;
   period: string;
   institution: string;

@@ -1,6 +1,7 @@
 
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 const SkillCard = ({ 
   icon: Icon, 
@@ -8,7 +9,7 @@ const SkillCard = ({
   description,
   delay = 0
 }: { 
-  icon: React.FC<{ size?: number, className?: string }>;
+  icon: LucideIcon;
   title: string;
   description: string;
   delay?: number;
