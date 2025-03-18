@@ -1,8 +1,22 @@
 
 import { FadeIn, FadeInUp } from './Transitions';
-import { User, GraduationCap, Code, Server } from 'lucide-react';
+import { User, GraduationCap, Code, Server, FileText } from 'lucide-react';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const About = () => {
   const [isSisrOpen, setIsSisrOpen] = useState(false);
@@ -21,15 +35,145 @@ const About = () => {
           
           <FadeInUp delay={100}>
             <div className="glass p-6 md:p-8 rounded-xl mb-8">
-              <p className="text-lg leading-relaxed mb-4">
-                👋 Salut, moi c'est Younes
-              </p>
-              <p className="text-lg leading-relaxed mb-4">
-                Je suis actuellement étudiant au lycée Léonard de Vinci 🗺️ en deuxième année de BTS SIO (Services Informatiques aux Organisations) dans l'option SLAM (Solutions Logicielles et Applications Métier), qui en gros est une option spécialisée pour le développement 💻
-              </p>
-              <p className="text-lg leading-relaxed">
-                Toujours en cours d'étude 🎓, je vous propose sur ce portfolio de découvrir les différentes études et projets professionnels que j'ai entrepris au cours de ma carrière.
-              </p>
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <p className="text-lg leading-relaxed mb-4">
+                    👋 Salut, moi c'est Younes
+                  </p>
+                  <p className="text-lg leading-relaxed mb-4">
+                    Je suis actuellement étudiant au lycée Léonard de Vinci 🗺️ en deuxième année de BTS SIO (Services Informatiques aux Organisations) dans l'option SLAM (Solutions Logicielles et Applications Métier), qui en gros est une option spécialisée pour le développement 💻
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    Toujours en cours d'étude 🎓, je vous propose sur ce portfolio de découvrir les différentes études et projets professionnels que j'ai entrepris au cours de ma carrière.
+                  </p>
+                </div>
+                <div className="ml-4">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button className="group" variant="secondary">
+                        <FileText className="mr-2 text-primary group-hover:animate-bounce" />
+                        <span>Voir mon CV</span>
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle className="text-center text-2xl mb-4">CV - Younès EL MOURABIT</DialogTitle>
+                      </DialogHeader>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Colonne gauche */}
+                        <div className="space-y-6">
+                          <Card>
+                            <CardHeader>
+                              <CardTitle className="text-primary">À PROPOS</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-2">
+                              <div className="flex items-center">
+                                <span className="w-6">📧</span>
+                                <span>nesyouelmou@gmail.com</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="w-6">🏠</span>
+                                <span>19 boulevard aguado</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="w-6">🎂</span>
+                                <span>Né le 11/11/2004</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="w-6">📍</span>
+                                <span>Évry</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="w-6">📞</span>
+                                <span>07 83 22 24 12</span>
+                              </div>
+                            </CardContent>
+                          </Card>
+                          
+                          <Card>
+                            <CardHeader>
+                              <CardTitle className="text-primary">CENTRES D'INTÉRÊT</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <div className="mb-4">
+                                <h3 className="font-semibold mb-2">Languages</h3>
+                                <ul className="list-inside space-y-1">
+                                  <li>• Php</li>
+                                  <li>• Kotlin</li>
+                                  <li>• Python</li>
+                                  <li>• Java</li>
+                                  <li>• Javascript</li>
+                                  <li>• Html</li>
+                                </ul>
+                              </div>
+                              
+                              <div>
+                                <h3 className="font-semibold mb-2">Sport</h3>
+                                <ul className="list-inside space-y-1">
+                                  <li>• Football</li>
+                                  <li>• Basket-ball</li>
+                                  <li>• Tennis</li>
+                                  <li>• Natation</li>
+                                </ul>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
+                        
+                        {/* Colonne droite */}
+                        <div className="space-y-6">
+                          <Card>
+                            <CardHeader>
+                              <CardTitle className="text-primary">DIPLÔMES ET FORMATIONS</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                              <div>
+                                <div className="font-semibold">BTS SIO OPTION SLAM</div>
+                                <div className="text-sm text-muted-foreground">De septembre 2023 à juin 2025</div>
+                                <div className="text-sm">Lycée Leonard vinci Melun</div>
+                              </div>
+                              
+                              <div>
+                                <div className="font-semibold">Baccalauréat Technologique STMG</div>
+                                <div className="text-sm text-muted-foreground">De septembre 2021 à juillet 2022</div>
+                                <div className="text-sm">Lycée Parc des loges Évry</div>
+                                <div className="text-sm">Option SIG</div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                          
+                          <Card>
+                            <CardHeader>
+                              <CardTitle className="text-primary">EXPÉRIENCES PROFESSIONNELLES</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                              <div>
+                                <div className="font-semibold">Stage – Refonte et mise en page d'un site web sous WordPress</div>
+                                <div className="text-sm text-muted-foreground">De janvier 2025 à février 2025</div>
+                                <div className="text-sm">Omac Torcy</div>
+                                <div className="text-sm mt-1">
+                                  Refonte du site d'une association : amélioration du design, mise en page des contenus, personnalisation du thème et optimisation de la navigation.
+                                </div>
+                              </div>
+                              
+                              <div>
+                                <div className="font-semibold">Stage de 1er année BTS SIO</div>
+                                <div className="text-sm text-muted-foreground">De mai 2024 à juin 2024</div>
+                                <div className="text-sm">Linksi Lens</div>
+                                <div className="font-medium mt-1">Développeur Web – Conception de site pour un club de football</div>
+                                <div className="text-sm mt-1">
+                                  Création d'un site web avec formulaire d'inscription, présentation des équipes et calendrier des matchs. Développement d'une interface moderne, intuitive et responsive.
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
             </div>
           </FadeInUp>
 
