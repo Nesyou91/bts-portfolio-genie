@@ -1,6 +1,6 @@
 
 import { FadeIn, FadeInUp } from './Transitions';
-import { User, Graduation, Code, Server } from 'lucide-react';
+import { User, GraduationCap, Code, Server } from 'lucide-react';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { useState } from 'react';
 
@@ -36,7 +36,7 @@ const About = () => {
           <FadeInUp delay={200}>
             <div className="glass p-6 md:p-8 rounded-xl">
               <div className="flex items-center mb-6">
-                <Graduation size={24} className="text-primary mr-2" />
+                <GraduationCap size={24} className="text-primary mr-2" />
                 <h3 className="text-xl font-display font-semibold">Qu'est ce que le BTS SIO 🎓 ?</h3>
               </div>
               
