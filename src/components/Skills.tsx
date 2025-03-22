@@ -183,8 +183,8 @@ const Skills = () => {
             </Tabs>
           </FadeInUp>
         </div>
-        
-        <div className="mt-24 relative">
+
+        <div className="relative">
           <div className="absolute inset-0 -z-10">
             <div className="bubble opacity-20 top-[30%] right-[5%]" style={{ animationDelay: '4s', width: '180px', height: '180px' }} />
             <div className="bubble opacity-15 bottom-[10%] left-[20%]" style={{ animationDelay: '7s', width: '220px', height: '220px' }} />
