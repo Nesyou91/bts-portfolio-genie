@@ -1,4 +1,3 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Monitor, InfoIcon } from 'lucide-react';
 import { Button } from './ui/button';
@@ -12,18 +11,17 @@ import {
 interface VeilleItemProps {
   title: string;
   description: React.ReactNode;
-  date: string;
+  date?: string;
   link?: string;
   delay?: number;
 }
 
-const VeilleItem = ({ title, description, date, link, delay = 0 }: VeilleItemProps) => {
+const VeilleItem = ({ title, description, link, delay = 0 }: VeilleItemProps) => {
   return (
     <FadeInUp delay={delay} className="mb-8 last:mb-0">
       <div className="rounded-lg border border-border/40 bg-card p-6 shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex justify-between items-start mb-4">
+        <div className="mb-4">
           <h3 className="text-xl font-semibold">{title}</h3>
-          <div className="text-sm text-foreground/50">{date}</div>
         </div>
         <div className="text-foreground/70">{description}</div>
       </div>
@@ -176,7 +174,6 @@ const Veille = () => {
                     key={index}
                     title={item.title}
                     description={item.description}
-                    date={item.date}
                     link={item.link}
                   />
                 ))}
