@@ -43,24 +43,7 @@ const VeilleItem = ({ title, description, date, link, delay = 0 }: VeilleItemPro
 
 const Veille = () => {
   const technologiqueItems = [
-    {
-      title: "L'émergence de l'IA générative dans le développement logiciel",
-      description: "Analyse des impacts de l'IA générative comme GitHub Copilot et ChatGPT sur les pratiques de développement et sur la productivité des équipes de programmation.",
-      date: "15 novembre 2023",
-      link: "#"
-    },
-    {
-      title: "Les tendances DevOps pour 2024",
-      description: "Exploration des nouvelles pratiques et outils DevOps qui façonnent l'industrie, avec un focus sur l'automatisation des pipelines CI/CD et le déploiement Kubernetes.",
-      date: "5 février 2024",
-      link: "#"
-    },
-    {
-      title: "Web Components: l'avenir du développement frontend",
-      description: "Étude approfondie des Web Components et de leur adoption croissante comme alternative aux frameworks JavaScript traditionnels.",
-      date: "20 avril 2024",
-      link: "#"
-    }
+    // All items removed as requested
   ];
 
   const juridiqueItems = [
