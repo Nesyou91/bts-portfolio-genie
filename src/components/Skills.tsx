@@ -178,21 +178,7 @@ const Skills = () => {
               </div>
             </FadeInUp>
             
-            <FadeInUp delay={200}>
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 mt-1 animate-pulse-glow">
-                  <Building size={24} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-display font-semibold mb-1">Baccalauréat Technologique STMG</h3>
-                  <div className="text-sm text-primary mb-2">Lycée Parc des loges, Évry - 2021/2022</div>
-                  <p className="text-foreground/70">
-                    Option SIG (Systèmes d'Information de Gestion). Formation aux fondamentaux de la gestion 
-                    des systèmes d'information et des organisations.
-                  </p>
-                </div>
-              </div>
-            </FadeInUp>
+            {/* Removed the Baccalauréat Technologique STMG section as requested */}
           </div>
         </div>
         

@@ -46,14 +46,8 @@ const Education = () => {
       period: "septembre 2023 - juin 2025",
       institution: "Lycée Leonard vinci, Melun",
       description: "Diplôme de technicien supérieur en informatique spécialisé dans le développement d'applications. Formation aux méthodes et technologies modernes du développement logiciel et web."
-    },
-    {
-      icon: GraduationCap,
-      title: "Baccalauréat Technologique STMG",
-      period: "septembre 2021 - juillet 2022",
-      institution: "Lycée Parc des loges, Évry",
-      description: "Option SIG (Systèmes d'Information de Gestion). Formation aux fondamentaux de la gestion des systèmes d'information et des organisations."
     }
+    // Removed the Baccalauréat Technologique STMG entry as requested
   ];
 
   const internshipItems = [
