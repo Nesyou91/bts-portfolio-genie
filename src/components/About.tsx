@@ -21,6 +21,7 @@ import {
 const About = () => {
   const [isSisrOpen, setIsSisrOpen] = useState(false);
   const [isSlamOpen, setIsSlamOpen] = useState(false);
+  const [isCVOpen, setIsCVOpen] = useState(false);
 
   return (
     <section id="about" className="section-padding bg-gradient-to-b from-background/90 to-primary/5 relative overflow-hidden py-20">
@@ -54,14 +55,17 @@ const About = () => {
                   </p>
                 </div>
                 <div className="ml-4">
-                  <Dialog>
-                    <DialogTrigger>
-                      <Button className="group glass-button overflow-hidden relative" variant="secondary">
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <FileText className="mr-2 text-primary group-hover:animate-bounce" />
-                        <span>Voir mon CV</span>
-                      </Button>
-                    </DialogTrigger>
+                  <Button 
+                    className="group glass-button overflow-hidden relative" 
+                    variant="secondary"
+                    onClick={() => setIsCVOpen(true)}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <FileText className="mr-2 text-primary group-hover:animate-bounce" />
+                    <span>Voir mon CV</span>
+                  </Button>
+                  
+                  <Dialog open={isCVOpen} onOpenChange={setIsCVOpen}>
                     <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
                       <DialogHeader>
                         <DialogTitle className="text-center text-2xl mb-4">CV - Younès EL MOURABIT</DialogTitle>
