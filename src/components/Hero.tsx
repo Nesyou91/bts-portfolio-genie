@@ -1,5 +1,5 @@
 
-import { FadeIn } from './Transitions';
+import { FadeIn, FadeInUp } from './Transitions';
 import { ArrowDown } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
@@ -23,7 +23,6 @@ const Hero = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Simplified particles - fewer particles, simpler movement
     const particles: { 
       x: number; 
       y: number; 
@@ -33,20 +32,19 @@ const Hero = () => {
       speedY: number;
     }[] = [];
     
-    // Reduced particle count
-    const particleCount = 15;
+    const particleCount = 30;
     
-    // Simple color
-    const color = `hsla(180, 70%, 60%, 0.2)`;
+    // Changed color to a teal/cyan shade
+    const color = `hsla(180, 80%, 60%, 0.3)`;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: 2 + Math.random() * 2, // Smaller radius range
+        radius: 2 + Math.random() * 3,
         color: color,
-        speedX: Math.random() * 0.2 - 0.1, // Slower movement
-        speedY: Math.random() * 0.2 - 0.1  // Slower movement
+        speedX: Math.random() * 0.3 - 0.15,
+        speedY: Math.random() * 0.3 - 0.15
       });
     }
 
@@ -55,7 +53,6 @@ const Hero = () => {
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Simplified background
       ctx.fillStyle = 'rgba(246, 246, 252, 0.01)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
@@ -95,24 +92,41 @@ const Hero = () => {
         style={{ pointerEvents: 'none' }}
       />
       
-      {/* Simple gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent z-0" />
+      {/* Changed gradient colors */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/10 to-transparent z-0" />
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
-            {/* Simplified welcome text - no letter-by-letter animation */}
-            <h2 className="text-2xl md:text-3xl font-bold text-teal-500 tracking-wider">
-              BIENVENUE SUR MON PORTFOLIO
+            <h2 className="text-2xl md:text-3xl font-bold text-teal-500 tracking-wider overflow-hidden">
+              <div className="flex justify-center">
+                {"BIENVENUE SUR MON PORTFOLIO".split('').map((letter, index) => (
+                  <span 
+                    key={index} 
+                    className="inline-block animate-pulse-slow hover:text-cyan-400"
+                    style={{
+                      animationDelay: `${index * 0.1}s`,
+                    }}
+                  >
+                    {letter === ' ' ? '\u00A0' : letter}
+                  </span>
+                ))}
+              </div>
             </h2>
           </div>
           
-          <div className="mb-12">
-            {/* Simplified heading - removed extra effects */}
-            <h1 className="heading-xl text-cyan-600">
+          <div className="relative mb-12">
+            {/* Changed gradient colors */}
+            <h1 className="heading-xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500 bg-clip-text text-transparent">
               Younes El Mourabit
             </h1>
+            <div className="absolute inset-0 bg-cyan-500/10 filter blur-xl opacity-40" />
           </div>
+          
+          <FadeInUp delay={600}>
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            </div>
+          </FadeInUp>
         </div>
       </div>
       
