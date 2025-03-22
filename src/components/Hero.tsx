@@ -34,8 +34,8 @@ const Hero = () => {
     
     const particleCount = 30;
     
-    // Changed color to a teal/cyan shade
-    const color = `hsla(180, 80%, 60%, 0.3)`;
+    // Changed back to base color - more blue/purple
+    const color = `hsla(250, 80%, 60%, 0.3)`;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -92,18 +92,18 @@ const Hero = () => {
         style={{ pointerEvents: 'none' }}
       />
       
-      {/* Changed gradient colors */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/10 to-transparent z-0" />
+      {/* Changed back to base blue/purple gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent z-0" />
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-teal-500 tracking-wider overflow-hidden">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary tracking-wider overflow-hidden">
               <div className="flex justify-center">
                 {"BIENVENUE SUR MON PORTFOLIO".split('').map((letter, index) => (
                   <span 
                     key={index} 
-                    className="inline-block animate-pulse-slow hover:text-cyan-400"
+                    className="inline-block animate-pulse-slow hover:text-primary"
                     style={{
                       animationDelay: `${index * 0.1}s`,
                     }}
@@ -116,11 +116,11 @@ const Hero = () => {
           </div>
           
           <div className="relative mb-12">
-            {/* Changed gradient colors */}
-            <h1 className="heading-xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500 bg-clip-text text-transparent">
+            {/* Changed to primary/accent gradient */}
+            <h1 className="heading-xl bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Younes El Mourabit
             </h1>
-            <div className="absolute inset-0 bg-cyan-500/10 filter blur-xl opacity-40" />
+            <div className="absolute inset-0 bg-primary/10 filter blur-xl opacity-40" />
           </div>
           
           <FadeInUp delay={600}>
@@ -133,7 +133,7 @@ const Hero = () => {
       <FadeIn className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10" delay={1000}>
         <a 
           href="#skills" 
-          className="flex flex-col items-center justify-center text-sm text-foreground/50 hover:text-teal-500 transition-colors"
+          className="flex flex-col items-center justify-center text-sm text-foreground/50 hover:text-primary transition-colors"
         >
           <span className="mb-2">Découvrir</span>
           <ArrowDown className="animate-bounce" size={20} />
