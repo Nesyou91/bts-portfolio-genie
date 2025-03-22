@@ -130,17 +130,32 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
-          <FadeInDown delay={150}>
-            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 tracking-wider">
-              BIENVENUE SUR MON PORTFOLIO
+          <div className="mb-6">
+            {/* Animated welcome text with letter-by-letter animation */}
+            <h2 className="inline-block text-2xl md:text-3xl font-bold text-accent tracking-wider">
+              {"BIENVENUE SUR MON PORTFOLIO".split('').map((letter, index) => (
+                <span 
+                  key={index} 
+                  className="inline-block animate-float"
+                  style={{ 
+                    animationDelay: `${index * 0.1}s`,
+                    animationDuration: '2s'
+                  }}
+                >
+                  {letter === ' ' ? '\u00A0' : letter}
+                </span>
+              ))}
             </h2>
-          </FadeInDown>
+          </div>
           
-          <FadeInUp delay={200}>
-            <h1 className="heading-xl mb-6 bg-gradient-to-r from-primary via-accent to-indigo-500 bg-clip-text text-transparent">
+          <div className="relative mb-6 py-4">
+            {/* Main heading with gradient glow animation */}
+            <h1 className="heading-xl bg-gradient-to-r from-primary via-accent to-indigo-500 bg-clip-text text-transparent relative z-10 animate-pulse-slow">
               Younes El Mourabit
             </h1>
-          </FadeInUp>
+            {/* Subtle glow effect behind the name */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-indigo-500/20 filter blur-xl opacity-70 animate-pulse-slow" style={{animationDelay: '0.5s'}}></div>
+          </div>
           
           <FadeInUp delay={600}>
             <div className="flex flex-wrap justify-center gap-4 mb-12">
