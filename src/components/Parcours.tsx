@@ -1,6 +1,6 @@
 
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, Calendar, GraduationCap } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
 const TimelineItem = ({ 
@@ -41,6 +41,20 @@ const TimelineItem = ({
 const Parcours = () => {
   const timelineItems = [
     {
+      icon: GraduationCap,
+      title: "BTS SIO OPTION SLAM",
+      period: "septembre 2023 - juin 2025",
+      institution: "Lycée Leonard vinci, Melun",
+      description: "Diplôme de technicien supérieur en informatique spécialisé dans le développement d'applications. Formation aux méthodes et technologies modernes du développement logiciel et web."
+    },
+    {
+      icon: GraduationCap,
+      title: "Baccalauréat Technologique STMG",
+      period: "septembre 2021 - juillet 2022",
+      institution: "Lycée Parc des loges, Évry",
+      description: "Option SIG (Systèmes d'Information de Gestion). Formation aux principes fondamentaux des systèmes d'information et de la gestion d'entreprise."
+    },
+    {
       icon: Briefcase,
       title: "Stage – Refonte et mise en page d'un site web sous WordPress",
       period: "Janvier 2025 - Février 2025",
@@ -71,11 +85,11 @@ const Parcours = () => {
             <span className="chip bg-primary/10 text-primary mb-2">Expérience</span>
           </FadeInUp>
           <FadeInUp delay={100}>
-            <h2 className="heading-lg mb-4">Parcours Professionnel</h2>
+            <h2 className="heading-lg mb-4">Parcours</h2>
           </FadeInUp>
           <FadeInUp delay={200}>
             <p className="text-foreground/70 max-w-2xl mx-auto mb-10">
-              Mes différentes expériences professionnelles m'ont permis de développer 
+              Mon parcours académique et professionnel m'a permis de développer 
               des compétences techniques et relationnelles essentielles dans le domaine informatique.
             </p>
           </FadeInUp>
