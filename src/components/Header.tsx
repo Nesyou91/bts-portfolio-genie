@@ -19,7 +19,7 @@ const Header = () => {
   const navLinks = [
     { name: "Accueil", href: "#home" },
     { name: "A propos", href: "#about", icon: <User size={16} className="mr-1" /> },
-    { name: "Parcours", href: "#education", icon: <GraduationCap size={16} className="mr-1" /> },
+    { name: "Expérience", href: "#parcours", icon: <GraduationCap size={16} className="mr-1" /> },
     { name: "Compétences", href: "#skills" },
     { name: "Projets", href: "#projects" },
     { name: "Contact", href: "#contact" },

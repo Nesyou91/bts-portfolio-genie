@@ -78,7 +78,7 @@ const Parcours = () => {
             <span className="chip bg-primary/10 text-primary mb-2">Expérience</span>
           </FadeInUp>
           <FadeInUp delay={100}>
-            <h2 className="heading-lg mb-4">Parcours</h2>
+            <h2 className="heading-lg mb-4">Expérience</h2>
           </FadeInUp>
           <FadeInUp delay={200}>
             <p className="text-foreground/70 max-w-2xl mx-auto mb-10">
