@@ -16,11 +16,7 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
-          <FadeInDown delay={100}>
-            <span className="inline-block mb-4 px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary animate-pulse">
-              Portfolio BTS SIO SLAM
-            </span>
-          </FadeInDown>
+          {/* Removed the Portfolio BTS SIO SLAM span */}
           
           <FadeInDown delay={150}>
             <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 tracking-wider animate-float">
@@ -36,7 +32,7 @@ const Hero = () => {
           
           <FadeInUp delay={600}>
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-              {/* Removed the "Développement web" div with Code icon */}
+              {/* Kept the empty div */}
             </div>
           </FadeInUp>
         </div>
