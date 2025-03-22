@@ -1,6 +1,5 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
-import { Monitor, ExternalLink, InfoIcon } from 'lucide-react';
+import { Monitor, InfoIcon } from 'lucide-react';
 import { Button } from './ui/button';
 import {
   Tabs,
@@ -26,16 +25,6 @@ const VeilleItem = ({ title, description, date, link, delay = 0 }: VeilleItemPro
           <div className="text-sm text-foreground/50">{date}</div>
         </div>
         <p className="mb-4 text-foreground/70">{description}</p>
-        {link && (
-          <Button 
-            variant="link" 
-            className="p-0 h-auto flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-            onClick={() => window.open(link, '_blank')}
-          >
-            <ExternalLink size={16} />
-            <span>Lire plus</span>
-          </Button>
-        )}
       </div>
     </FadeInUp>
   );
