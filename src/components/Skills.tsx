@@ -126,7 +126,7 @@ const Skills = () => {
     },
     {
       name: "Java",
-      techIcon: Coffee
+      imageSrc: "/lovable-uploads/40fb76ba-44d1-4151-99cf-d3cd0efb041f.png"
     }
   ];
 
