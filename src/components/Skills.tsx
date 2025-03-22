@@ -1,3 +1,4 @@
+
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield, FileCode, Paintbrush, Braces, FileBadge, Hash, PanelLeft, Coffee } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -106,7 +107,7 @@ const Skills = () => {
     },
     {
       name: "CSS",
-      techIcon: Paintbrush
+      imageSrc: "/lovable-uploads/5ac33d95-17d6-4d85-a7d2-e3e4d6e63907.png"
     },
     {
       name: "JavaScript",
