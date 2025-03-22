@@ -1,6 +1,5 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
-import { Code, Server, Database, Layout, Globe, Shield, FileCode, Paintbrush, Braces, FileBadge, Hash, PanelLeft, Coffee } from 'lucide-react';
+import { Code, Server, Database, Layout, Globe, Shield, FileCode, Briefcase, Building, Calendar } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 import {
@@ -9,7 +8,6 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
-import { Button } from '@/components/ui/button';
 
 const SkillCard = ({ 
   icon: Icon, 
@@ -38,7 +36,7 @@ const SkillCard = ({
 const TechSkillCard = ({ 
   name,
   icon,
-  techIcon: TechIcon,
+  techIcon,
   imageSrc,
   delay = 0
 }: { 
@@ -55,10 +53,41 @@ const TechSkillCard = ({
           {imageSrc ? (
             <img src={imageSrc} alt={name} className="w-10 h-10 object-contain" />
           ) : (
-            TechIcon && <TechIcon size={28} className="text-primary" />
+            techIcon && <techIcon size={28} className="text-primary" />
           )}
         </div>
         <h3 className="text-lg font-display font-semibold">{name}</h3>
+      </div>
+    </FadeInUp>
+  );
+};
+
+const ExperienceCard = ({
+  role,
+  company,
+  period,
+  description,
+  delay = 0
+}: {
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  delay?: number;
+}) => {
+  return (
+    <FadeInUp delay={delay} className="h-full">
+      <div className="h-full glass rounded-lg p-6 hover:shadow-glossy transition-all duration-300 hover:translate-y-[-5px]">
+        <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+          <Briefcase size={24} className="text-primary" />
+        </div>
+        <div className="flex items-center gap-2 mb-2">
+          <Calendar size={14} className="text-primary" />
+          <span className="text-sm text-foreground/70">{period}</span>
+        </div>
+        <h3 className="text-xl font-display font-semibold mb-1">{role}</h3>
+        <div className="text-sm text-primary mb-3">{company}</div>
+        <p className="text-foreground/70">{description}</p>
       </div>
     </FadeInUp>
   );
@@ -127,6 +156,27 @@ const Skills = () => {
     }
   ];
 
+  const experiences = [
+    {
+      role: "Développeur Web - Stage",
+      company: "Agence Web Innovation",
+      period: "Mars 2024 - Juin 2024",
+      description: "Développement de sites web dynamiques avec WordPress et PHP. Intégration de designs responsive et optimisation SEO."
+    },
+    {
+      role: "Assistant développeur - Stage",
+      company: "PME Technologies",
+      period: "Mai 2023 - Juin 2023",
+      description: "Participation au développement d'applications internes. Maintenance d'une base de données client et support technique."
+    },
+    {
+      role: "Support technique - Job étudiant",
+      company: "Helpdesk Services",
+      period: "Été 2022",
+      description: "Assistance aux utilisateurs, dépannage informatique et résolution de problèmes techniques de premier niveau."
+    }
+  ];
+
   return (
     <section id="skills" className="section-padding bg-secondary/30">
       <div className="container mx-auto px-4 md:px-6">
@@ -189,6 +239,86 @@ const Skills = () => {
               </TabsContent>
             </Tabs>
           </FadeInUp>
+        </div>
+        
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <FadeInUp>
+              <span className="chip bg-primary/10 text-primary mb-2">Expérience</span>
+            </FadeInUp>
+            <FadeInUp delay={100}>
+              <h2 className="heading-lg mb-4">Mon Parcours Professionnel</h2>
+            </FadeInUp>
+            <FadeInUp delay={200}>
+              <p className="text-foreground/70 max-w-2xl mx-auto mb-8">
+                Mes expériences professionnelles m'ont permis de mettre en pratique mes compétences 
+                et de développer mon adaptabilité dans différents environnements de travail.
+              </p>
+            </FadeInUp>
+          </div>
+          
+          <StaggeredChildren className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {experiences.map((exp, index) => (
+              <ExperienceCard
+                key={index}
+                role={exp.role}
+                company={exp.company}
+                period={exp.period}
+                description={exp.description}
+              />
+            ))}
+          </StaggeredChildren>
+        </div>
+        
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <FadeInUp>
+              <span className="chip bg-primary/10 text-primary mb-2">Formation</span>
+            </FadeInUp>
+            <FadeInUp delay={100}>
+              <h2 className="heading-lg mb-4">Parcours</h2>
+            </FadeInUp>
+            <FadeInUp delay={200}>
+              <p className="text-foreground/70 max-w-2xl mx-auto mb-8">
+                Mon chemin académique m'a permis d'acquérir les connaissances et compétences 
+                nécessaires pour exercer dans le domaine de l'informatique.
+              </p>
+            </FadeInUp>
+          </div>
+          
+          <div className="glass rounded-lg p-8 max-w-3xl mx-auto">
+            <FadeInUp>
+              <div className="flex items-start gap-4 mb-6">
+                <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 mt-1">
+                  <Building size={24} className="text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-display font-semibold mb-1">BTS SIO option SLAM</h3>
+                  <div className="text-sm text-primary mb-2">Lycée Technologique, Paris - 2022/2024</div>
+                  <p className="text-foreground/70">
+                    Diplôme de technicien supérieur en informatique spécialisé dans le développement d'applications.
+                    Formation aux méthodes et technologies modernes du développement logiciel et web.
+                  </p>
+                </div>
+              </div>
+            </FadeInUp>
+            
+            <FadeInUp delay={200}>
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 mt-1">
+                  <Building size={24} className="text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-display font-semibold mb-1">Baccalauréat Général</h3>
+                  <div className="text-sm text-primary mb-2">Lycée Général, Paris - 2019/2022</div>
+                  <p className="text-foreground/70">
+                    Spécialités Mathématiques et Numérique et Sciences Informatiques (NSI).
+                    Options Mathématiques Expertes. Obtention avec mention Bien.
+                  </p>
+                </div>
+              </div>
+            </FadeInUp>
+          </div>
         </div>
       </div>
     </section>
