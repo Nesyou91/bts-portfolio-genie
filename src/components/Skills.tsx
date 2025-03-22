@@ -1,5 +1,6 @@
+
 import { FadeInUp, StaggeredChildren } from './Transitions';
-import { Code, Server, Database, Layout, Globe, Shield, FileCode, Building, Calendar } from 'lucide-react';
+import { Code, Server, Database, Layout, Globe, Shield, FileCode, Gear, LaptopCode, UserCheck, BrainCircuit, Binary } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 import {
@@ -63,32 +64,32 @@ const Skills = () => {
     {
       icon: Code,
       title: "Développement d'applications",
-      description: "Conception et réalisation d'applications en utilisant les langages et frameworks modernes (Java, C#, PHP, JavaScript, React)."
-    },
-    {
-      icon: Server,
-      title: "Administration de systèmes",
-      description: "Configuration et maintenance des serveurs, mise en place de solutions virtualisées, administration Windows/Linux."
+      description: "Conception et création d'applications desktop et web en utilisant différents langages (Java, C#, PHP, JavaScript) et frameworks modernes."
     },
     {
       icon: Database,
       title: "Bases de données",
-      description: "Conception, manipulation et administration de bases de données relationnelles (MySQL, PostgreSQL) et NoSQL."
+      description: "Modélisation, conception et administration de bases de données SQL (MySQL, PostgreSQL) et NoSQL. Création de requêtes complexes et optimisation."
     },
     {
-      icon: Layout,
-      title: "Expérience utilisateur",
-      description: "Création d'interfaces intuitives et accessibles, respect des normes d'ergonomie et d'accessibilité web."
+      icon: LaptopCode,
+      title: "Développement web avancé",
+      description: "Maîtrise des frameworks front-end (React, Angular) et back-end (Laravel, Spring). Développement d'API RESTful et architectures MVC."
     },
     {
-      icon: Globe,
-      title: "Réseaux",
-      description: "Configuration d'infrastructures réseau, mise en place de solutions de connectivité, sécurisation des échanges."
+      icon: Gear,
+      title: "Méthodes agiles",
+      description: "Application des méthodologies agiles (Scrum, Kanban) dans le développement de logiciels. Gestion de versions avec Git et travail collaboratif."
     },
     {
-      icon: Shield,
-      title: "Cybersécurité",
-      description: "Identification des vulnérabilités, mise en place de bonnes pratiques, protection des données personnelles (RGPD)."
+      icon: UserCheck,
+      title: "Interfaces utilisateur",
+      description: "Conception d'interfaces ergonomiques et accessibles. Respect des normes d'UX/UI et adaptation aux besoins spécifiques des utilisateurs."
+    },
+    {
+      icon: BrainCircuit,
+      title: "Analyse et conception",
+      description: "Analyse des besoins clients, modélisation UML, conception de solutions logicielles adaptées aux contraintes fonctionnelles et techniques."
     }
   ];
 
@@ -132,13 +133,11 @@ const Skills = () => {
           </FadeInUp>
           <FadeInUp delay={200}>
             <p className="text-foreground/70 max-w-2xl mx-auto mb-8">
-              Le BTS SIO m'a permis d'acquérir un large éventail de compétences techniques et organisationnelles, 
-              essentielles pour répondre aux besoins informatiques des entreprises.
+              Le BTS SIO option SLAM m'a permis d'acquérir des compétences avancées en développement d'applications 
+              et en conception de solutions logicielles pour répondre aux besoins des entreprises.
             </p>
           </FadeInUp>
         </div>
-
-        {/* Parcours Académique Section - Removed as requested */}
         
         {/* Tabs Section */}
         <FadeInUp delay={300}>
@@ -168,7 +167,9 @@ const Skills = () => {
               <FadeInUp delay={100}>
                 <div className="glass p-6 rounded-lg max-w-3xl mx-auto mb-8 mt-6">
                   <p className="text-center text-foreground/70">
-                    Toutes ces connaissances ont été acquises de différentes façons. Elles ont été acquises durant mes études en BTS SIO et d'autres par ma propre initiative en essayant de mettre en place des solutions. J'ai également relevé les défis organisés, ce qui permet d'effectuer des recherches et aller encore plus loin.
+                    Ces compétences techniques ont été acquises durant ma formation en BTS SIO option SLAM,
+                    par le biais de projets personnels et lors de mes stages en entreprise.
+                    L'apprentissage continu et l'auto-formation font partie intégrante de ma démarche professionnelle.
                   </p>
                 </div>
               </FadeInUp>
