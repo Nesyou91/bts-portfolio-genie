@@ -56,23 +56,6 @@ const Hero = () => {
               </div>
             </div>
           </FadeInUp>
-          
-          <FadeIn delay={800}>
-            <div className="flex justify-center gap-4">
-              <a 
-                href="#projects" 
-                className="button-primary"
-              >
-                Voir mes projets
-              </a>
-              <a 
-                href="#contact" 
-                className="button-secondary"
-              >
-                Me contacter
-              </a>
-            </div>
-          </FadeIn>
         </div>
       </div>
       
