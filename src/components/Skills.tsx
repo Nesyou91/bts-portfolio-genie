@@ -1,6 +1,6 @@
 
 import { FadeInUp, StaggeredChildren } from './Transitions';
-import { Code, Server, Database, Layout, Globe, Shield, FileCode } from 'lucide-react';
+import { Code, Server, Database, Layout, Globe, Shield, FileCode, Braces, Paintbrush, FileBadge, Hash, PanelLeft, Coffee } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 import {
@@ -38,15 +38,20 @@ const SkillCard = ({
 const TechSkillCard = ({ 
   name,
   icon,
+  techIcon: TechIcon,
   delay = 0
 }: { 
   name: string;
   icon: string;
+  techIcon: LucideIcon;
   delay?: number;
 }) => {
   return (
     <FadeInUp delay={delay} className="h-full">
       <div className="h-full glass rounded-lg p-6 hover:shadow-glossy transition-all duration-300 hover:translate-y-[-5px] flex flex-col items-center">
+        <div className="bg-primary/10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
+          <TechIcon size={28} className="text-primary" />
+        </div>
         <div className="bg-code-bg rounded-lg p-4 mb-4 w-full overflow-hidden">
           <pre className="text-sm text-code-text font-mono">
             <code>{icon}</code>
@@ -105,7 +110,8 @@ const Skills = () => {
   <body>
     <h1>Hello World!</h1>
   </body>
-</html>`
+</html>`,
+      techIcon: FileCode
     },
     {
       name: "CSS",
@@ -117,7 +123,8 @@ const Skills = () => {
   );
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}`
+}`,
+      techIcon: Paintbrush
     },
     {
       name: "JavaScript",
@@ -128,7 +135,8 @@ const Skills = () => {
   setTimeout(() => {
     element.classList.remove('animated');
   }, 1000);
-}`
+}`,
+      techIcon: Braces
     },
     {
       name: "React",
@@ -143,7 +151,8 @@ const Skills = () => {
       </button>
     </div>
   );
-}`
+}`,
+      techIcon: Code
     },
     {
       name: "PHP",
@@ -157,7 +166,8 @@ function connect() {
   $conn = new mysqli($host, $user, $pass, $db);
   return $conn;
 }
-?>`
+?>`,
+      techIcon: FileBadge
     },
     {
       name: "Python",
@@ -169,7 +179,8 @@ function connect() {
         
 # Calculate factorial of 5
 result = factorial(5)
-print(f"Factorial: {result}")`
+print(f"Factorial: {result}")`,
+      techIcon: Hash
     },
     {
       name: "Java",
@@ -181,7 +192,8 @@ print(f"Factorial: {result}")`
             System.out.println(i);
         }
     }
-}`
+}`,
+      techIcon: Coffee
     }
   ];
 
@@ -240,6 +252,7 @@ print(f"Factorial: {result}")`
                       key={index}
                       name={skill.name}
                       icon={skill.icon}
+                      techIcon={skill.techIcon}
                     />
                   ))}
                 </StaggeredChildren>
