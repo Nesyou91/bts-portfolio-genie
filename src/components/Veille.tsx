@@ -1,4 +1,3 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Rss, Monitor, ExternalLink, InfoIcon } from 'lucide-react';
 import {
@@ -46,19 +45,8 @@ const Veille = () => {
     // All items removed as requested
   ];
 
-  const juridiqueItems = [
-    {
-      title: "Les implications du RGPD sur le développement d'applications",
-      description: "Analyse des obligations légales et des meilleures pratiques pour assurer la conformité RGPD lors du développement d'applications manipulant des données personnelles.",
-      date: "10 janvier 2024",
-      link: "#"
-    },
-    {
-      title: "La propriété intellectuelle dans les projets open source",
-      description: "Étude des licences open source et de leurs implications juridiques pour les entreprises et les développeurs.",
-      date: "12 mars 2024",
-      link: "#"
-    }
+  const juridiqueItems: [] = [
+    // All items removed as requested
   ];
 
   return (
