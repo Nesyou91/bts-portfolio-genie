@@ -1,4 +1,3 @@
-
 import { FadeIn, FadeInUp } from './Transitions';
 import { User, GraduationCap, Code, Server, FileText } from 'lucide-react';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
@@ -23,18 +22,24 @@ const About = () => {
   const [isSlamOpen, setIsSlamOpen] = useState(false);
 
   return (
-    <section id="about" className="section-padding bg-background/50 relative overflow-hidden">
+    <section id="about" className="section-padding bg-gradient-to-b from-background/90 to-primary/5 relative overflow-hidden py-20">
+      <div className="absolute inset-0 bg-noise opacity-10 z-0" />
+      <div className="bubble opacity-20 top-[20%] left-[15%]" style={{ animationDelay: '0s', width: '350px', height: '350px' }} />
+      <div className="bubble opacity-15 bottom-[30%] right-[10%]" style={{ animationDelay: '4s', width: '300px', height: '300px' }} />
+      
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="flex items-center justify-center mb-8">
-              <User size={24} className="text-primary mr-2" />
-              <h2 className="heading-md">À propos</h2>
+              <div className="bg-primary/10 p-3 rounded-full animate-pulse-slow">
+                <User size={28} className="text-primary" />
+              </div>
+              <h2 className="heading-md ml-3 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">À propos</h2>
             </div>
           </FadeIn>
           
           <FadeInUp delay={100}>
-            <div className="glass p-6 md:p-8 rounded-xl mb-8">
+            <div className="glass-card p-6 md:p-8 rounded-xl mb-8 shadow-soft hover-3d transform transition-all duration-300">
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <p className="text-lg leading-relaxed mb-4">
@@ -50,7 +55,8 @@ const About = () => {
                 <div className="ml-4">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className="group" variant="secondary">
+                      <Button className="group glass-button overflow-hidden relative" variant="secondary">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <FileText className="mr-2 text-primary group-hover:animate-bounce" />
                         <span>Voir mon CV</span>
                       </Button>
@@ -61,7 +67,6 @@ const About = () => {
                       </DialogHeader>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {/* Colonne gauche */}
                         <div className="space-y-6">
                           <Card>
                             <CardHeader>
@@ -121,7 +126,6 @@ const About = () => {
                           </Card>
                         </div>
                         
-                        {/* Colonne droite */}
                         <div className="space-y-6">
                           <Card>
                             <CardHeader>
@@ -178,10 +182,15 @@ const About = () => {
           </FadeInUp>
 
           <FadeInUp delay={200}>
-            <div className="glass p-6 md:p-8 rounded-xl">
+            <div className="glass-card p-6 md:p-8 rounded-xl relative overflow-hidden">
+              <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+              <div className="absolute -left-20 -top-20 w-48 h-48 bg-accent/5 rounded-full blur-3xl"></div>
+              
               <div className="flex items-center mb-6">
-                <GraduationCap size={24} className="text-primary mr-2" />
-                <h3 className="text-xl font-display font-semibold">Qu'est ce que le BTS SIO 🎓 ?</h3>
+                <div className="bg-primary/10 p-2 rounded-full animate-float">
+                  <GraduationCap size={24} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-display font-semibold ml-3">Qu'est ce que le BTS SIO 🎓 ?</h3>
               </div>
               
               <p className="text-lg leading-relaxed mb-6">
@@ -200,7 +209,7 @@ const About = () => {
                     <Server size={20} className="text-primary mr-2" />
                     <span className="font-medium">Option SISR</span>
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="p-4 bg-background/50">
+                  <CollapsibleContent className="p-4 bg-background/50 animate-accordion-down">
                     <p className="mb-3">
                       L'option Solution d'infrastructure, systèmes et réseaux forme des professionnels des réseaux et équipements informatiques (installation, maintenance, sécurité). En sortant d'un BTS SIO SISR, vous serez capables de gérer et d'administrer le réseau d'une société et d'assurer sa sécurité et sa maintenance.
                     </p>
@@ -217,12 +226,12 @@ const About = () => {
                   </CollapsibleContent>
                 </Collapsible>
 
-                <Collapsible open={isSlamOpen} onOpenChange={setIsSlamOpen} className="border border-border rounded-lg overflow-hidden">
+                <Collapsible open={isSlamOpen} onOpenChange={setIsSlamOpen} className="border border-primary/20 rounded-lg overflow-hidden shadow-soft">
                   <CollapsibleTrigger className="flex items-center w-full p-4 text-left bg-primary/10 hover:bg-primary/20 transition-colors">
                     <Code size={20} className="text-primary mr-2" />
                     <span className="font-medium">Option SLAM 👈<span className="text-primary ml-2 italic">(la filière que j'ai choisie)</span></span>
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="p-4 bg-background/50">
+                  <CollapsibleContent className="p-4 bg-background/50 animate-accordion-down">
                     <p className="mb-3">
                       L'option Solutions logicielles et applications métiers forme des spécialistes des logiciels (rédaction d'un cahier des charges, formulation des besoins et spécifications, développement, intégration au sein de la société).
                     </p>
