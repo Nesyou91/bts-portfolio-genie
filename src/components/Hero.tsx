@@ -1,6 +1,6 @@
 
 import { FadeIn, FadeInUp, FadeInDown } from './Transitions';
-import { ArrowDown, Code } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -34,18 +34,9 @@ const Hero = () => {
             </h1>
           </FadeInUp>
           
-          <FadeIn delay={400}>
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto mb-8">
-              Développeur d'applications et services informatiques
-            </p>
-          </FadeIn>
-          
           <FadeInUp delay={600}>
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <div className="glass-primary p-4 rounded-lg flex items-center gap-3 hover-3d">
-                <Code className="text-primary" size={24} />
-                <span className="font-medium">Développement web</span>
-              </div>
+              {/* Removed the "Développement web" div with Code icon */}
             </div>
           </FadeInUp>
         </div>
