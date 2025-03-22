@@ -1,4 +1,3 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield, FileCode, Settings, Laptop, UserCheck, BrainCircuit, Binary } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -78,11 +77,6 @@ const Skills = () => {
       icon: UserCheck,
       title: "Interfaces utilisateur",
       description: "Conception d'interfaces ergonomiques et accessibles. Respect des normes d'UX/UI et adaptation aux besoins spécifiques des utilisateurs."
-    },
-    {
-      icon: BrainCircuit,
-      title: "Analyse et conception",
-      description: "Analyse des besoins clients, modélisation UML, conception de solutions logicielles adaptées aux contraintes fonctionnelles et techniques."
     }
   ];
 
