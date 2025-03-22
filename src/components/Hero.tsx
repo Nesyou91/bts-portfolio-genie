@@ -1,10 +1,110 @@
 
 import { FadeIn, FadeInUp, FadeInDown } from './Transitions';
 import { ArrowDown } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 const Hero = () => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Set canvas dimensions to match window size
+    const setCanvasSize = () => {
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+    };
+
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize);
+
+    // Create particles
+    const particles: { x: number; y: number; radius: number; color: string; speedX: number; speedY: number; }[] = [];
+    const particleCount = 50;
+    const colors = ['rgba(59, 130, 246, 0.2)', 'rgba(99, 102, 241, 0.2)', 'rgba(139, 92, 246, 0.2)'];
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 5 + 1,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speedX: Math.random() * 0.5 - 0.25,
+        speedY: Math.random() * 0.5 - 0.25
+      });
+    }
+
+    // Animation function
+    const animate = () => {
+      if (!canvas || !ctx) return;
+      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Update and draw particles
+      particles.forEach(particle => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        
+        // Bounce off walls
+        if (particle.x < 0 || particle.x > canvas.width) {
+          particle.speedX *= -1;
+        }
+        
+        if (particle.y < 0 || particle.y > canvas.height) {
+          particle.speedY *= -1;
+        }
+        
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = particle.color;
+        ctx.fill();
+      });
+      
+      // Draw connections between particles
+      particles.forEach((particleA, i) => {
+        particles.slice(i + 1).forEach(particleB => {
+          const dx = particleA.x - particleB.x;
+          const dy = particleA.y - particleB.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - distance / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particleA.x, particleA.y);
+            ctx.lineTo(particleB.x, particleB.y);
+            ctx.stroke();
+          }
+        });
+      });
+      
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', setCanvasSize);
+    };
+  }, []);
+
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-16">
+      {/* Canvas background animation */}
+      <canvas 
+        ref={canvasRef} 
+        className="absolute inset-0 z-0"
+        style={{ pointerEvents: 'none' }}
+      />
+      
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-radial from-blue-50 to-transparent opacity-70 z-0" />
       <div className="absolute inset-0 bg-noise opacity-5 z-0" />
