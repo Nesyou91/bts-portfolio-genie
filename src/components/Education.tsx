@@ -42,10 +42,17 @@ const Education = () => {
   const academicItems = [
     {
       icon: GraduationCap,
-      title: "BTS SIO option SLAM",
-      period: "2022 - 2024",
-      institution: "Lycée Technologique, Paris",
+      title: "BTS SIO OPTION SLAM",
+      period: "septembre 2023 - juin 2025",
+      institution: "Lycée Leonard vinci, Melun",
       description: "Diplôme de technicien supérieur en informatique spécialisé dans le développement d'applications. Formation aux méthodes et technologies modernes du développement logiciel et web."
+    },
+    {
+      icon: GraduationCap,
+      title: "Baccalauréat Technologique STMG",
+      period: "septembre 2021 - juillet 2022",
+      institution: "Lycée Parc des loges, Évry",
+      description: "Option SIG (Systèmes d'Information de Gestion). Formation aux fondamentaux de la gestion des systèmes d'information et des organisations."
     }
   ];
 
@@ -79,15 +86,16 @@ const Education = () => {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           <div>
             <FadeInUp>
-              <span className="chip bg-primary/10 text-primary mb-2">Formation</span>
+              <span className="chip bg-primary/10 text-primary mb-2">Parcours</span>
             </FadeInUp>
             <FadeInUp delay={100}>
-              <h2 className="heading-lg mb-4">Parcours</h2>
+              <h2 className="heading-lg mb-4">Formation Académique</h2>
             </FadeInUp>
             <FadeInUp delay={200}>
               <p className="text-foreground/70 mb-10">
-                Mon chemin académique m'a permis d'acquérir les connaissances et compétences 
-                nécessaires pour exercer dans le domaine de l'informatique.
+                Mon parcours académique m'a permis d'acquérir les compétences 
+                techniques et relationnelles nécessaires pour réussir dans le domaine des services
+                informatiques aux organisations.
               </p>
             </FadeInUp>
 
