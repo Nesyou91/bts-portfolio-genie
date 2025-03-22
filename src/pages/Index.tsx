@@ -70,28 +70,28 @@ const Index = () => {
       {/* Enhanced noise overlay */}
       <div className="fixed inset-0 bg-noise opacity-8 pointer-events-none z-[-1]"></div>
       
-      {/* Enhanced animated background elements */}
+      {/* Enhanced animated background elements with harmonized color palette */}
       <div className="fixed inset-0 pointer-events-none z-[-2] overflow-hidden">
         {/* Primary large gradient blobs */}
-        <div className="absolute -top-40 -left-40 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/10 to-transparent opacity-80 blur-3xl animate-morph-gradient"></div>
-        <div className="absolute -bottom-40 -right-40 w-[800px] h-[800px] rounded-full bg-gradient-radial from-accent/15 to-transparent opacity-80 blur-3xl animate-morph-gradient" style={{animationDelay: '3s'}}></div>
+        <div className="absolute -top-40 -left-40 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/15 to-transparent opacity-80 blur-3xl animate-morph-gradient"></div>
+        <div className="absolute -bottom-40 -right-40 w-[800px] h-[800px] rounded-full bg-gradient-radial from-accent/20 to-transparent opacity-80 blur-3xl animate-morph-gradient" style={{animationDelay: '3s'}}></div>
         
-        {/* Secondary animated orbs with more vibrant colors */}
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-blue-400/25 to-purple-500/25 blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-[350px] h-[350px] rounded-full bg-gradient-to-r from-pink-400/30 to-indigo-500/30 blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-2/3 left-1/3 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-indigo-400/25 to-blue-500/25 blur-3xl animate-pulse-slow" style={{animationDelay: '4s'}}></div>
+        {/* Secondary animated orbs with harmonized colors */}
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-primary/30 to-accent/30 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-[350px] h-[350px] rounded-full bg-gradient-to-r from-accent/35 to-primary/25 blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-2/3 left-1/3 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-indigo-500/25 to-accent/25 blur-3xl animate-pulse-slow" style={{animationDelay: '4s'}}></div>
         
         {/* Enhanced gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 animate-gradient-shift opacity-70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-indigo-50/50 animate-gradient-shift opacity-70"></div>
         
         {/* Enhanced shimmer effect lines */}
-        <div className="absolute h-px w-full top-1/4 bg-gradient-to-r from-transparent via-primary/40 to-transparent animate-shimmer opacity-80"></div>
-        <div className="absolute h-px w-full top-2/4 bg-gradient-to-r from-transparent via-accent/40 to-transparent animate-shimmer opacity-80" style={{animationDelay: '1s'}}></div>
-        <div className="absolute h-px w-full top-3/4 bg-gradient-to-r from-transparent via-primary/40 to-transparent animate-shimmer opacity-80" style={{animationDelay: '2s'}}></div>
+        <div className="absolute h-px w-full top-1/4 bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-shimmer opacity-80"></div>
+        <div className="absolute h-px w-full top-2/4 bg-gradient-to-r from-transparent via-accent/50 to-transparent animate-shimmer opacity-80" style={{animationDelay: '1s'}}></div>
+        <div className="absolute h-px w-full top-3/4 bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-shimmer opacity-80" style={{animationDelay: '2s'}}></div>
         
         {/* Diagonally moving light beams */}
-        <div className="absolute h-[2px] w-[1000px] top-[30%] left-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent -rotate-[30deg] animate-slide-in-left" style={{animationDuration: '8s', animationIterationCount: 'infinite'}}></div>
-        <div className="absolute h-[2px] w-[1000px] bottom-[30%] right-0 bg-gradient-to-r from-transparent via-accent/30 to-transparent rotate-[30deg] animate-slide-in-right" style={{animationDuration: '8s', animationIterationCount: 'infinite', animationDelay: '4s'}}></div>
+        <div className="absolute h-[2px] w-[1000px] top-[30%] left-0 bg-gradient-to-r from-transparent via-primary/40 to-transparent -rotate-[30deg] animate-slide-in-left" style={{animationDuration: '8s', animationIterationCount: 'infinite'}}></div>
+        <div className="absolute h-[2px] w-[1000px] bottom-[30%] right-0 bg-gradient-to-r from-transparent via-accent/40 to-transparent rotate-[30deg] animate-slide-in-right" style={{animationDuration: '8s', animationIterationCount: 'infinite', animationDelay: '4s'}}></div>
       </div>
 
       <Header />

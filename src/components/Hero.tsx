@@ -1,4 +1,3 @@
-
 import { FadeIn, FadeInUp, FadeInDown } from './Transitions';
 import { ArrowDown } from 'lucide-react';
 import { useEffect, useRef } from 'react';
@@ -38,7 +37,7 @@ const Hero = () => {
     }[] = [];
     
     const particleCount = 120;
-    const hues = [210, 220, 240, 280, 320, 340];
+    const hues = [250, 255, 260, 262, 265, 270];
 
     for (let i = 0; i < particleCount; i++) {
       const baseHue = hues[Math.floor(Math.random() * hues.length)];
@@ -78,7 +77,6 @@ const Hero = () => {
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Add a subtle gradient background to the canvas
       const bgGradient = ctx.createRadialGradient(
         canvas.width / 2, canvas.height / 2, 0,
         canvas.width / 2, canvas.height / 2, canvas.width * 0.8
@@ -89,24 +87,20 @@ const Hero = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach(particle => {
-        // Update position
         particle.x += particle.speedX;
         particle.y += particle.speedY;
         
-        // Pulsate size
         particle.radius += particle.growth;
         if (particle.radius > 12 || particle.radius < 1) {
           particle.growth *= -1;
         }
         
-        // Shift hue over time for color cycling effect
         particle.hueCurrent += particle.hueShift * 0.01;
         if (Math.abs(particle.hueCurrent - particle.baseHue) > 30) {
           particle.hueShift *= -1;
         }
         particle.color = `hsla(${particle.hueCurrent}, 80%, 60%, ${particle.opacity})`;
         
-        // Mouse interaction with stronger force
         if (isMouseMoving) {
           const dx = mouseX - particle.x;
           const dy = mouseY - particle.y;
@@ -117,12 +111,10 @@ const Hero = () => {
             particle.x -= dx * force / 10;
             particle.y -= dy * force / 10;
             
-            // Increase brightness on interaction
             particle.color = `hsla(${particle.hueCurrent}, 90%, 70%, ${particle.opacity + 0.2})`;
           }
         }
         
-        // Bounce off edges
         if (particle.x < 0 || particle.x > canvas.width) {
           particle.speedX *= -1;
         }
@@ -131,14 +123,12 @@ const Hero = () => {
           particle.speedY *= -1;
         }
         
-        // Draw particle with inner glow
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
         ctx.globalAlpha = particle.opacity;
         ctx.fill();
         
-        // Add stronger outer glow
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
           particle.x, particle.y, particle.radius * 4
@@ -155,7 +145,6 @@ const Hero = () => {
         ctx.globalAlpha = 1;
       });
       
-      // Draw connections between particles with vibrant colors
       particles.forEach((particleA, i) => {
         particles.slice(i + 1).forEach(particleB => {
           const dx = particleA.x - particleB.x;
@@ -165,7 +154,6 @@ const Hero = () => {
           if (distance < 200) {
             ctx.beginPath();
             
-            // Create more vibrant connections
             const opacity = 0.3 * (1 - distance / 200);
             const gradient = ctx.createLinearGradient(
               particleA.x, particleA.y, 
@@ -208,14 +196,12 @@ const Hero = () => {
         style={{ pointerEvents: 'none' }}
       />
       
-      {/* Improved background gradient layers */}
-      <div className="absolute inset-0 bg-gradient-radial from-blue-50/60 to-transparent opacity-90 z-0" />
+      <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent opacity-90 z-0" />
       <div className="absolute inset-0 bg-noise opacity-5 z-0" />
       
-      {/* Enhanced floating bubbles */}
-      <div className="bubble opacity-60 top-[20%] left-[15%] bg-gradient-to-br from-indigo-400/30 to-purple-500/30 animate-pulse-slow" style={{ animationDelay: '0s', width: '400px', height: '400px' }} />
-      <div className="bubble opacity-50 top-[50%] right-[10%] bg-gradient-to-br from-pink-400/30 to-purple-500/30 animate-pulse-slow" style={{ animationDelay: '3s', width: '350px', height: '350px' }} />
-      <div className="bubble opacity-55 bottom-[15%] left-[25%] bg-gradient-to-br from-blue-400/30 to-indigo-500/30 animate-pulse-slow" style={{ animationDelay: '6s', width: '300px', height: '300px' }} />
+      <div className="bubble opacity-60 top-[20%] left-[15%] bg-gradient-to-br from-indigo-500/30 to-accent/30 animate-pulse-slow" style={{ animationDelay: '0s', width: '400px', height: '400px' }} />
+      <div className="bubble opacity-50 top-[50%] right-[10%] bg-gradient-to-br from-accent/30 to-primary/30 animate-pulse-slow" style={{ animationDelay: '3s', width: '350px', height: '350px' }} />
+      <div className="bubble opacity-55 bottom-[15%] left-[25%] bg-gradient-to-br from-primary/30 to-indigo-500/30 animate-pulse-slow" style={{ animationDelay: '6s', width: '300px', height: '300px' }} />
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
@@ -226,7 +212,7 @@ const Hero = () => {
           </FadeInDown>
           
           <FadeInUp delay={200}>
-            <h1 className="heading-xl mb-6 bg-gradient-to-r from-primary via-accent to-purple-600 bg-clip-text text-transparent animate-morph-gradient bg-[size:200%_200%]">
+            <h1 className="heading-xl mb-6 bg-gradient-to-r from-primary via-accent to-indigo-500 bg-clip-text text-transparent animate-morph-gradient bg-[size:200%_200%]">
               Younes El Mourabit
             </h1>
           </FadeInUp>
@@ -248,7 +234,6 @@ const Hero = () => {
         </a>
       </FadeIn>
       
-      {/* Enhanced animated border */}
       <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-primary to-transparent animate-shimmer"></div>
     </section>
   );
