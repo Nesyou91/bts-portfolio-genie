@@ -45,14 +45,14 @@ const Education = () => {
       title: "BTS SIO option SLAM",
       period: "2022 - 2024",
       institution: "Lycée Technologique, Paris",
-      description: "Formation aux méthodes et technologies de développement d'applications et de services. Spécialisation en Solutions Logicielles et Applications Métiers (SLAM)."
+      description: "Diplôme de technicien supérieur en informatique spécialisé dans le développement d'applications. Formation aux méthodes et technologies modernes du développement logiciel et web."
     },
     {
       icon: GraduationCap,
       title: "Baccalauréat Général",
       period: "2019 - 2022",
       institution: "Lycée Général, Paris",
-      description: "Spécialité Mathématiques et Numérique et Sciences Informatiques (NSI). Option Mathématiques Expertes."
+      description: "Spécialités Mathématiques et Numérique et Sciences Informatiques (NSI). Options Mathématiques Expertes. Obtention avec mention Bien."
     }
   ];
 
