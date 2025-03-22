@@ -1,6 +1,6 @@
 
 import { FadeInUp, StaggeredChildren } from './Transitions';
-import { Rss, Monitor, ExternalLink } from 'lucide-react';
+import { Rss, Monitor, ExternalLink, InfoIcon } from 'lucide-react';
 import {
   Tabs,
   TabsContent,
@@ -97,6 +97,22 @@ const Veille = () => {
         </div>
 
         <FadeInUp delay={200} className="mb-8">
+          <div className="max-w-3xl mx-auto mb-12 rounded-lg border border-primary/20 bg-primary/5 p-6">
+            <div className="flex items-start gap-4">
+              <div className="mt-1 text-primary">
+                <InfoIcon size={20} />
+              </div>
+              <div>
+                <h3 className="text-lg font-medium mb-2 text-primary">Qu'est-ce que la veille technologique ?</h3>
+                <p className="text-foreground/80">
+                  Une veille informatique est un processus de surveillance et de recherche d'informations sur les nouveautés 
+                  et tendances du domaine informatique. Elle permet de se tenir au courant des évolutions technologiques, 
+                  des nouvelles pratiques et des innovations dans le secteur.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <Tabs defaultValue="technologique" className="max-w-3xl mx-auto">
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="technologique">
