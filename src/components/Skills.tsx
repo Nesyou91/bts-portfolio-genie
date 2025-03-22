@@ -113,10 +113,6 @@ const Skills = () => {
       imageSrc: "/lovable-uploads/ceb8ad49-ffff-4595-bd07-9f5060a9208d.png"
     },
     {
-      name: "React",
-      techIcon: Code
-    },
-    {
       name: "PHP",
       imageSrc: "/lovable-uploads/f9199e8e-3434-466f-aed5-5366d0d90f0a.png"
     },
