@@ -22,6 +22,12 @@ const Hero = () => {
             </span>
           </FadeInDown>
           
+          <FadeInDown delay={150}>
+            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 tracking-wider animate-float">
+              BIENVENUE SUR MON PORTFOLIO
+            </h2>
+          </FadeInDown>
+          
           <FadeInUp delay={200}>
             <h1 className="heading-xl mb-6 bg-gradient-to-r from-primary via-accent to-purple-600 bg-clip-text text-transparent animate-morph-gradient bg-[size:200%_200%]">
               Younes El Mourabit
