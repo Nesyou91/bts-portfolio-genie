@@ -1,3 +1,4 @@
+
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Monitor, InfoIcon } from 'lucide-react';
 import { Button } from './ui/button';
@@ -10,7 +11,7 @@ import {
 
 interface VeilleItemProps {
   title: string;
-  description: string;
+  description: React.ReactNode;
   date: string;
   link?: string;
   delay?: number;
@@ -24,7 +25,7 @@ const VeilleItem = ({ title, description, date, link, delay = 0 }: VeilleItemPro
           <h3 className="text-xl font-semibold">{title}</h3>
           <div className="text-sm text-foreground/50">{date}</div>
         </div>
-        <p className="mb-4 text-foreground/70">{description}</p>
+        <div className="text-foreground/70">{description}</div>
       </div>
     </FadeInUp>
   );
@@ -34,19 +35,94 @@ const Veille = () => {
   const technologiqueItems: VeilleItemProps[] = [
     {
       title: "Technologies du Métaverse",
-      description: "Analyse des tendances actuelles: réalité virtuelle (VR), réalité augmentée (AR), blockchain pour les NFT, et intelligence artificielle pour améliorer les avatars et interactions dans les mondes virtuels.",
+      description: (
+        <div className="space-y-4">
+          <div>
+            <h4 className="text-md font-medium mb-2">📌 Tendances actuelles</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Utilisation de la réalité virtuelle (VR) et de la réalité augmentée (AR) pour créer des mondes immersifs.</li>
+              <li>Intégration de la blockchain pour sécuriser les transactions et la propriété des biens virtuels (NFT).</li>
+              <li>Amélioration des avatars et des interactions grâce à l'intelligence artificielle.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-md font-medium mb-2">🚀 Exemples concrets</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Meta (ex-Facebook) développe Horizon Worlds, un espace social en VR.</li>
+              <li>Apple et Google investissent dans les lunettes AR pour le Metaverse.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-md font-medium mb-2">⚠️ Enjeux et limites</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Matériel coûteux et manque de normes technologiques.</li>
+              <li>Performances limitées à cause des infrastructures réseau actuelles.</li>
+            </ul>
+          </div>
+        </div>
+      ),
       date: "18 mai 2024",
       link: "https://example.com/metaverse-tech"
     },
     {
       title: "Économie et Monétisation dans le Métaverse",
-      description: "Étude des nouveaux modèles économiques: terrains virtuels, NFT, cryptomonnaies et marchés du travail émergents dans des plateformes comme Decentraland et The Sandbox.",
+      description: (
+        <div className="space-y-4">
+          <div>
+            <h4 className="text-md font-medium mb-2">📌 Tendances actuelles</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Achat et vente de terrains virtuels sur des plateformes comme Decentraland et The Sandbox.</li>
+              <li>Développement d'un nouveau marché du travail (événements, concerts, boutiques virtuelles).</li>
+              <li>Croissance des NFT et cryptomonnaies pour échanger des biens virtuels.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-md font-medium mb-2">🚀 Exemples concrets</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Des entreprises comme Nike et Gucci vendent des vêtements numériques pour avatars.</li>
+              <li>Des artistes organisent des concerts virtuels dans Fortnite et Roblox.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-md font-medium mb-2">⚠️ Enjeux et limites</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Risque de spéculation et de bulle économique.</li>
+              <li>Sécurité des transactions et arnaques liées aux NFT.</li>
+            </ul>
+          </div>
+        </div>
+      ),
       date: "10 mai 2024",
       link: "https://example.com/metaverse-economy"
     },
     {
       title: "Impact Social et Éthique du Métaverse",
-      description: "Exploration des transformations sociales, enjeux d'identité numérique, confidentialité des données et risques psychologiques liés à l'adoption massive des environnements virtuels.",
+      description: (
+        <div className="space-y-4">
+          <div>
+            <h4 className="text-md font-medium mb-2">📌 Tendances actuelles</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Transformation des interactions sociales avec des réunions et événements en VR.</li>
+              <li>Question de l'identité numérique et de la confidentialité des données.</li>
+              <li>Impact psychologique et risque d'addiction.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-md font-medium mb-2">🚀 Exemples concrets</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Des entreprises testent des bureaux virtuels pour le travail à distance.</li>
+              <li>Des associations alertent sur les risques d'isolement et de cyberharcèlement.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-md font-medium mb-2">⚠️ Enjeux et limites</h4>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Protection des mineurs face aux contenus inappropriés.</li>
+              <li>Contrôle des données personnelles par les grandes entreprises du Métaverse.</li>
+            </ul>
+          </div>
+        </div>
+      ),
       date: "1 mai 2024",
       link: "https://example.com/metaverse-ethics"
     }
