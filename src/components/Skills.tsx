@@ -111,7 +111,7 @@ const Skills = () => {
     },
     {
       name: "JavaScript",
-      techIcon: Braces
+      imageSrc: "/lovable-uploads/ceb8ad49-ffff-4595-bd07-9f5060a9208d.png"
     },
     {
       name: "React",
