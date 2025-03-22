@@ -103,56 +103,6 @@ const Parcours = () => {
               ))}
             </StaggeredChildren>
           </div>
-
-          <div>
-            <FadeInUp delay={300}>
-              <div className="glass rounded-lg p-8 h-full">
-                <div className="flex items-center mb-6">
-                  <div className="bg-primary/10 text-primary w-10 h-10 rounded-full flex items-center justify-center mr-4">
-                    <Briefcase size={20} />
-                  </div>
-                  <h3 className="text-2xl font-display font-semibold">Compétences Acquises</h3>
-                </div>
-
-                <div className="mb-8">
-                  <h4 className="text-lg font-medium mb-3">Développement Web</h4>
-                  <ul className="space-y-2 text-foreground/70">
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span>Création de sites responsifs et interfaces utilisateur modernes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span>Utilisation de CMS (WordPress) et personnalisation avancée de thèmes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span>Développement front-end avec JavaScript, HTML5 et CSS3</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-medium mb-3">Compétences Professionnelles</h4>
-                  <ul className="space-y-2">
-                    {[
-                      "Gestion de projets et respect des délais",
-                      "Communication avec les clients et compréhension des besoins",
-                      "Travail en équipe et collaboration multidisciplinaire",
-                      "Résolution de problèmes techniques complexes"
-                    ].map((skill, index) => (
-                      <FadeIn key={index} delay={400 + (index * 100)}>
-                        <li className="flex items-start">
-                          <span className="text-primary mr-2">•</span>
-                          <span className="text-foreground/70">{skill}</span>
-                        </li>
-                      </FadeIn>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </FadeInUp>
-          </div>
         </div>
       </div>
     </section>
