@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { Menu, X, User, GraduationCap } from "lucide-react";
+import { Menu, X, User, GraduationCap, Rss } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +22,7 @@ const Header = () => {
     { name: "Compétences", href: "#skills" },
     { name: "Expérience", href: "#parcours", icon: <GraduationCap size={16} className="mr-1" /> },
     { name: "Projets", href: "#projects" },
+    { name: "Veille", href: "#veille", icon: <Rss size={16} className="mr-1" /> },
     { name: "Contact", href: "#contact" },
   ];
 
