@@ -103,19 +103,24 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
-            {/* Simplified welcome animation */}
-            <h2 className="text-2xl md:text-3xl font-bold text-accent tracking-wider">
-              {"BIENVENUE SUR MON PORTFOLIO".split('').map((letter, index) => (
-                <span 
-                  key={index} 
-                  className="inline-block animate-simple-float"
-                  style={{
-                    animationDelay: `${index * 0.05}s`,
-                  }}
-                >
-                  {letter === ' ' ? '\u00A0' : letter}
-                </span>
-              ))}
+            <h2 className="text-2xl md:text-3xl font-bold text-accent tracking-wider overflow-hidden">
+              <div className="flex justify-center">
+                {"BIENVENUE SUR MON PORTFOLIO".split('').map((letter, index) => (
+                  <span 
+                    key={index} 
+                    className="inline-block transform transition-all duration-700 hover:text-primary"
+                    style={{
+                      animationName: 'bounce',
+                      animationDuration: '1s',
+                      animationDelay: `${index * 0.05}s`,
+                      animationFillMode: 'both',
+                      animationTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                  >
+                    {letter === ' ' ? '\u00A0' : letter}
+                  </span>
+                ))}
+              </div>
             </h2>
           </div>
           
