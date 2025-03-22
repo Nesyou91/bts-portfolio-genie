@@ -2,6 +2,12 @@
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
 import { Briefcase, Calendar, GraduationCap } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
 
 const TimelineItem = ({ 
   icon: Icon, 
@@ -39,7 +45,7 @@ const TimelineItem = ({
 };
 
 const Parcours = () => {
-  const timelineItems = [
+  const educationItems = [
     {
       icon: GraduationCap,
       title: "BTS SIO OPTION SLAM",
@@ -53,7 +59,10 @@ const Parcours = () => {
       period: "septembre 2021 - juillet 2022",
       institution: "Lycée Parc des loges, Évry",
       description: "Option SIG (Systèmes d'Information de Gestion). Formation aux principes fondamentaux des systèmes d'information et de la gestion d'entreprise."
-    },
+    }
+  ];
+
+  const professionalItems = [
     {
       icon: Briefcase,
       title: "Stage – Refonte et mise en page d'un site web sous WordPress",
@@ -78,7 +87,7 @@ const Parcours = () => {
             <span className="chip bg-primary/10 text-primary mb-2">Expérience</span>
           </FadeInUp>
           <FadeInUp delay={100}>
-            <h2 className="heading-lg mb-4">Expérience</h2>
+            <h2 className="heading-lg mb-4">Parcours</h2>
           </FadeInUp>
           <FadeInUp delay={200}>
             <p className="text-foreground/70 max-w-2xl mx-auto mb-10">
@@ -88,22 +97,44 @@ const Parcours = () => {
           </FadeInUp>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-          <div>
-            <StaggeredChildren>
-              {timelineItems.map((item, index) => (
-                <TimelineItem
-                  key={index}
-                  icon={item.icon}
-                  title={item.title}
-                  period={item.period}
-                  institution={item.institution}
-                  description={item.description}
-                />
-              ))}
-            </StaggeredChildren>
-          </div>
-        </div>
+        <FadeInUp delay={200} className="mb-8">
+          <Tabs defaultValue="education" className="max-w-3xl mx-auto">
+            <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsTrigger value="education">Formation</TabsTrigger>
+              <TabsTrigger value="professional">Expérience Professionnelle</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="education" className="mt-4">
+              <StaggeredChildren>
+                {educationItems.map((item, index) => (
+                  <TimelineItem
+                    key={index}
+                    icon={item.icon}
+                    title={item.title}
+                    period={item.period}
+                    institution={item.institution}
+                    description={item.description}
+                  />
+                ))}
+              </StaggeredChildren>
+            </TabsContent>
+
+            <TabsContent value="professional" className="mt-4">
+              <StaggeredChildren>
+                {professionalItems.map((item, index) => (
+                  <TimelineItem
+                    key={index}
+                    icon={item.icon}
+                    title={item.title}
+                    period={item.period}
+                    institution={item.institution}
+                    description={item.description}
+                  />
+                ))}
+              </StaggeredChildren>
+            </TabsContent>
+          </Tabs>
+        </FadeInUp>
       </div>
     </section>
   );
