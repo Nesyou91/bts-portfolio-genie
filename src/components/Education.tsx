@@ -1,3 +1,4 @@
+
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
 import { Medal, GraduationCap, Briefcase, Calendar } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -45,6 +46,20 @@ const Education = () => {
       period: "2022 - 2024",
       institution: "Lycée Technologique, Paris",
       description: "Formation aux méthodes et technologies de développement d'applications et de services. Spécialisation en Solutions Logicielles et Applications Métiers (SLAM)."
+    },
+    {
+      icon: Briefcase,
+      title: "Stage – Refonte et mise en page d'un site web sous WordPress",
+      period: "Janvier 2025 - Février 2025",
+      institution: "Omac, Torcy",
+      description: "Refonte du site d'une association : amélioration du design, mise en page des contenus, personnalisation du thème et optimisation de la navigation."
+    },
+    {
+      icon: Briefcase,
+      title: "Stage - Développeur Web",
+      period: "Mai 2024 - Juin 2024",
+      institution: "Linksi, Lens",
+      description: "Création d'un site web pour un club de football avec formulaire d'inscription, présentation des équipes et calendrier des matchs. Développement d'une interface moderne, intuitive et responsive."
     },
     {
       icon: Briefcase,
