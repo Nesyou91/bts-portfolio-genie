@@ -1,5 +1,6 @@
+
 import { FadeInUp, StaggeredChildren } from './Transitions';
-import { Rss, Monitor, ExternalLink, InfoIcon } from 'lucide-react';
+import { Monitor, ExternalLink, InfoIcon } from 'lucide-react';
 import {
   Tabs,
   TabsContent,
@@ -41,11 +42,7 @@ const VeilleItem = ({ title, description, date, link, delay = 0 }: VeilleItemPro
 };
 
 const Veille = () => {
-  const technologiqueItems = [
-    // All items removed as requested
-  ];
-
-  const juridiqueItems: [] = [
+  const technologiqueItems: VeilleItemProps[] = [
     // All items removed as requested
   ];
 
@@ -61,7 +58,7 @@ const Veille = () => {
           </FadeInUp>
           <FadeInUp delay={200}>
             <p className="text-foreground/70 max-w-2xl mx-auto mb-10">
-              Je maintiens une veille informationnelle active sur les évolutions technologiques et juridiques 
+              Je maintiens une veille informationnelle active sur les évolutions technologiques
               du secteur informatique pour anticiper les changements et adapter mes compétences.
             </p>
           </FadeInUp>
@@ -84,23 +81,13 @@ const Veille = () => {
             </div>
           </div>
 
-          <Tabs defaultValue="technologique" className="max-w-3xl mx-auto">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              <TabsTrigger value="technologique">
-                <div className="flex items-center gap-2">
-                  <Monitor size={16} />
-                  <span>Veille Technologique</span>
-                </div>
-              </TabsTrigger>
-              <TabsTrigger value="juridique">
-                <div className="flex items-center gap-2">
-                  <Rss size={16} />
-                  <span>Veille Juridique</span>
-                </div>
-              </TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="technologique" className="mt-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-center gap-2 mb-6">
+              <Monitor size={20} className="text-primary" />
+              <h3 className="text-xl font-medium">Veille Technologique</h3>
+            </div>
+            
+            {technologiqueItems.length > 0 ? (
               <StaggeredChildren>
                 {technologiqueItems.map((item, index) => (
                   <VeilleItem
@@ -112,22 +99,14 @@ const Veille = () => {
                   />
                 ))}
               </StaggeredChildren>
-            </TabsContent>
-
-            <TabsContent value="juridique" className="mt-4">
-              <StaggeredChildren>
-                {juridiqueItems.map((item, index) => (
-                  <VeilleItem
-                    key={index}
-                    title={item.title}
-                    description={item.description}
-                    date={item.date}
-                    link={item.link}
-                  />
-                ))}
-              </StaggeredChildren>
-            </TabsContent>
-          </Tabs>
+            ) : (
+              <div className="text-center py-12 border border-dashed border-border/40 rounded-lg">
+                <p className="text-foreground/70">
+                  Pas d'articles de veille technologique pour le moment.
+                </p>
+              </div>
+            )}
+          </div>
         </FadeInUp>
       </div>
     </section>
