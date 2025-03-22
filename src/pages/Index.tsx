@@ -42,56 +42,29 @@ const Index = () => {
       observer.observe(section);
     });
 
-    // Add parallax scroll effect
-    const handleParallax = () => {
-      const scrollY = window.scrollY;
-      const parallaxElements = document.querySelectorAll('.parallax');
-      
-      parallaxElements.forEach((el) => {
-        const element = el as HTMLElement;
-        const speed = element.dataset.speed || '0.1';
-        const yPos = scrollY * parseFloat(speed);
-        element.style.transform = `translateY(${yPos}px)`;
-      });
-    };
-
-    window.addEventListener('scroll', handleParallax);
-
     return () => {
       sections.forEach(section => {
         observer.unobserve(section);
       });
-      window.removeEventListener('scroll', handleParallax);
     };
   }, []);
 
   return (
     <div className="min-h-screen overflow-x-hidden relative">
-      {/* Enhanced noise overlay */}
-      <div className="fixed inset-0 bg-noise opacity-8 pointer-events-none z-[-1]"></div>
+      {/* Simple noise overlay */}
+      <div className="fixed inset-0 bg-noise opacity-5 pointer-events-none z-[-1]"></div>
       
-      {/* Enhanced animated background elements with harmonized color palette */}
+      {/* Simplified background elements */}
       <div className="fixed inset-0 pointer-events-none z-[-2] overflow-hidden">
-        {/* Primary large gradient blobs */}
-        <div className="absolute -top-40 -left-40 w-[800px] h-[800px] rounded-full bg-gradient-radial from-primary/15 to-transparent opacity-80 blur-3xl animate-morph-gradient"></div>
-        <div className="absolute -bottom-40 -right-40 w-[800px] h-[800px] rounded-full bg-gradient-radial from-accent/20 to-transparent opacity-80 blur-3xl animate-morph-gradient" style={{animationDelay: '3s'}}></div>
+        {/* Simple gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 opacity-70"></div>
         
-        {/* Secondary animated orbs with harmonized colors */}
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-primary/30 to-accent/30 blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-[350px] h-[350px] rounded-full bg-gradient-to-r from-accent/35 to-primary/25 blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-2/3 left-1/3 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-indigo-500/25 to-accent/25 blur-3xl animate-pulse-slow" style={{animationDelay: '4s'}}></div>
+        {/* Two main gradient blobs */}
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-gradient-radial from-primary/10 to-transparent opacity-60 blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-radial from-accent/15 to-transparent opacity-60 blur-3xl"></div>
         
-        {/* Enhanced gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-indigo-50/50 animate-gradient-shift opacity-70"></div>
-        
-        {/* Enhanced shimmer effect lines */}
-        <div className="absolute h-px w-full top-1/4 bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-shimmer opacity-80"></div>
-        <div className="absolute h-px w-full top-2/4 bg-gradient-to-r from-transparent via-accent/50 to-transparent animate-shimmer opacity-80" style={{animationDelay: '1s'}}></div>
-        <div className="absolute h-px w-full top-3/4 bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-shimmer opacity-80" style={{animationDelay: '2s'}}></div>
-        
-        {/* Diagonally moving light beams */}
-        <div className="absolute h-[2px] w-[1000px] top-[30%] left-0 bg-gradient-to-r from-transparent via-primary/40 to-transparent -rotate-[30deg] animate-slide-in-left" style={{animationDuration: '8s', animationIterationCount: 'infinite'}}></div>
-        <div className="absolute h-[2px] w-[1000px] bottom-[30%] right-0 bg-gradient-to-r from-transparent via-accent/40 to-transparent rotate-[30deg] animate-slide-in-right" style={{animationDuration: '8s', animationIterationCount: 'infinite', animationDelay: '4s'}}></div>
+        {/* Single subtle shimmer line */}
+        <div className="absolute h-px w-full top-1/2 bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-shimmer opacity-50"></div>
       </div>
 
       <Header />
