@@ -1,3 +1,4 @@
+
 import { FadeIn, FadeInUp } from './Transitions';
 import { User, GraduationCap, Code, Server, FileText } from 'lucide-react';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
@@ -54,7 +55,7 @@ const About = () => {
                 </div>
                 <div className="ml-4">
                   <Dialog>
-                    <DialogTrigger asChild>
+                    <DialogTrigger>
                       <Button className="group glass-button overflow-hidden relative" variant="secondary">
                         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <FileText className="mr-2 text-primary group-hover:animate-bounce" />
