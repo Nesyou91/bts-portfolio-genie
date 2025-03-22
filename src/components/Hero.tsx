@@ -1,4 +1,3 @@
-
 import { FadeIn, FadeInUp, FadeInDown } from './Transitions';
 import { ArrowDown } from 'lucide-react';
 import { useEffect, useRef } from 'react';
@@ -13,7 +12,6 @@ const Hero = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas dimensions to match window size
     const setCanvasSize = () => {
       if (canvas) {
         canvas.width = window.innerWidth;
@@ -24,7 +22,6 @@ const Hero = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Create particles
     const particles: { 
       x: number; 
       y: number; 
@@ -36,14 +33,14 @@ const Hero = () => {
       growth: number;
     }[] = [];
     
-    const particleCount = 100; // Increased count for more density
+    const particleCount = 100;
     const colors = [
-      'rgba(99, 102, 241, 0.6)', // Indigo
-      'rgba(139, 92, 246, 0.6)',  // Purple
-      'rgba(167, 139, 250, 0.6)', // Violet
-      'rgba(217, 70, 239, 0.6)',   // Pink
-      'rgba(79, 70, 229, 0.6)',   // Blue
-      'rgba(236, 72, 153, 0.6)'   // Rose
+      'rgba(99, 102, 241, 0.6)',
+      'rgba(139, 92, 246, 0.6)',
+      'rgba(167, 139, 250, 0.6)',
+      'rgba(217, 70, 239, 0.6)',
+      'rgba(79, 70, 229, 0.6)',
+      'rgba(236, 72, 153, 0.6)'
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -52,14 +49,13 @@ const Hero = () => {
         y: Math.random() * canvas.height,
         radius: Math.random() * 6 + 1,
         color: colors[Math.floor(Math.random() * colors.length)],
-        speedX: Math.random() * 0.8 - 0.4, // Increased speed
-        speedY: Math.random() * 0.8 - 0.4, // Increased speed
-        opacity: Math.random() * 0.5 + 0.3, // Slightly more opacity
-        growth: Math.random() < 0.5 ? 0.03 : -0.03 // Faster growth/shrink
+        speedX: Math.random() * 0.8 - 0.4,
+        speedY: Math.random() * 0.8 - 0.4,
+        opacity: Math.random() * 0.5 + 0.3,
+        growth: Math.random() < 0.5 ? 0.03 : -0.03
       });
     }
 
-    // Mouse interaction
     let mouseX = 0;
     let mouseY = 0;
     let isMouseMoving = false;
@@ -69,7 +65,6 @@ const Hero = () => {
       mouseY = e.clientY;
       isMouseMoving = true;
       
-      // Reset flag after 2 seconds of inactivity
       setTimeout(() => {
         isMouseMoving = false;
       }, 2000);
@@ -77,38 +72,32 @@ const Hero = () => {
     
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Animation function
     const animate = () => {
       if (!canvas || !ctx) return;
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Update and draw particles
       particles.forEach(particle => {
-        // Update position
         particle.x += particle.speedX;
         particle.y += particle.speedY;
         
-        // Pulse animation - change radius
         particle.radius += particle.growth;
-        if (particle.radius > 10 || particle.radius < 1) { // Increased max size
+        if (particle.radius > 10 || particle.radius < 1) {
           particle.growth *= -1;
         }
         
-        // Mouse interaction - attract particles when mouse is moving
         if (isMouseMoving) {
           const dx = mouseX - particle.x;
           const dy = mouseY - particle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           
           if (distance < 200) {
-            const force = 0.3 * (1 - distance / 200); // Increased force
+            const force = 0.3 * (1 - distance / 200);
             particle.x += dx * force / 25;
             particle.y += dy * force / 25;
           }
         }
         
-        // Bounce off walls
         if (particle.x < 0 || particle.x > canvas.width) {
           particle.speedX *= -1;
         }
@@ -117,14 +106,12 @@ const Hero = () => {
           particle.speedY *= -1;
         }
         
-        // Draw particle with enhanced glow effect
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
         ctx.globalAlpha = particle.opacity;
         ctx.fill();
         
-        // Add stronger glow
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
           particle.x, particle.y, particle.radius * 3
@@ -135,29 +122,26 @@ const Hero = () => {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius * 3, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
-        ctx.globalAlpha = particle.opacity * 0.6; // Stronger glow
+        ctx.globalAlpha = particle.opacity * 0.6;
         ctx.fill();
         
         ctx.globalAlpha = 1;
       });
       
-      // Draw connections between particles with enhanced visuals
       particles.forEach((particleA, i) => {
         particles.slice(i + 1).forEach(particleB => {
           const dx = particleA.x - particleB.x;
           const dy = particleA.y - particleB.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           
-          if (distance < 150) { // Connection distance
+          if (distance < 150) {
             ctx.beginPath();
             
-            // Enhanced gradient connections
             const gradient = ctx.createLinearGradient(
               particleA.x, particleA.y, 
               particleB.x, particleB.y
             );
             
-            // Extract color values for more dynamic gradients
             const colorA = particleA.color.replace('rgba(', '').replace(')', '').split(',');
             const colorB = particleB.color.replace('rgba(', '').replace(')', '').split(',');
             
@@ -165,8 +149,8 @@ const Hero = () => {
             gradient.addColorStop(1, `rgba(${colorB[0]}, ${colorB[1]}, ${colorB[2]}, ${0.2 * (1 - distance / 150)})`);
             
             ctx.strokeStyle = gradient;
-            ctx.globalAlpha = 0.2 * (1 - distance / 150); // Slightly higher base opacity
-            ctx.lineWidth = 1.2; // Thicker lines
+            ctx.globalAlpha = 0.2 * (1 - distance / 150);
+            ctx.lineWidth = 1.2;
             ctx.moveTo(particleA.x, particleA.y);
             ctx.lineTo(particleB.x, particleB.y);
             ctx.stroke();
@@ -180,7 +164,6 @@ const Hero = () => {
 
     animate();
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', setCanvasSize);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -189,18 +172,15 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-16">
-      {/* Canvas background animation */}
       <canvas 
         ref={canvasRef} 
         className="absolute inset-0 z-0"
         style={{ pointerEvents: 'none' }}
       />
       
-      {/* Enhanced background elements */}
       <div className="absolute inset-0 bg-gradient-radial from-blue-50/50 to-transparent opacity-80 z-0" />
       <div className="absolute inset-0 bg-noise opacity-5 z-0" />
       
-      {/* Animated background bubbles with enhanced styles */}
       <div className="bubble opacity-40 top-[20%] left-[15%] bg-gradient-to-br from-indigo-400/20 to-purple-500/20" style={{ animationDelay: '0s', width: '350px', height: '350px' }} />
       <div className="bubble opacity-30 top-[50%] right-[10%] bg-gradient-to-br from-pink-400/20 to-purple-500/20" style={{ animationDelay: '3s', width: '300px', height: '300px' }} />
       <div className="bubble opacity-35 bottom-[15%] left-[25%] bg-gradient-to-br from-blue-400/20 to-indigo-500/20" style={{ animationDelay: '6s', width: '250px', height: '250px' }} />
@@ -208,20 +188,19 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInDown delay={150}>
-            <h2 className="text-2xl md:text-3xl font-impact text-accent mb-6 tracking-wider animate-float uppercase">
+            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 tracking-wider animate-float">
               BIENVENUE SUR MON PORTFOLIO
             </h2>
           </FadeInDown>
           
           <FadeInUp delay={200}>
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-purple-600 bg-clip-text text-transparent animate-morph-gradient bg-[size:200%_200%] tracking-tight">
+            <h1 className="heading-xl mb-6 bg-gradient-to-r from-primary via-accent to-purple-600 bg-clip-text text-transparent animate-morph-gradient bg-[size:200%_200%]">
               Younes El Mourabit
             </h1>
           </FadeInUp>
           
           <FadeInUp delay={600}>
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-              {/* Kept the empty div */}
             </div>
           </FadeInUp>
         </div>
@@ -232,12 +211,11 @@ const Hero = () => {
           href="#skills" 
           className="flex flex-col items-center justify-center text-sm text-foreground/50 hover:text-primary transition-colors"
         >
-          <span className="mb-2 font-medium">Découvrir</span>
+          <span className="mb-2">Découvrir</span>
           <ArrowDown className="animate-bounce" size={20} />
         </a>
       </FadeIn>
       
-      {/* Enhanced animated gradient line */}
       <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-shimmer"></div>
     </section>
   );
