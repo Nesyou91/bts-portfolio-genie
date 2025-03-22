@@ -43,7 +43,24 @@ const VeilleItem = ({ title, description, date, link, delay = 0 }: VeilleItemPro
 
 const Veille = () => {
   const technologiqueItems: VeilleItemProps[] = [
-    // All items removed as requested
+    {
+      title: "Technologies du Métaverse",
+      description: "Analyse des tendances actuelles: réalité virtuelle (VR), réalité augmentée (AR), blockchain pour les NFT, et intelligence artificielle pour améliorer les avatars et interactions dans les mondes virtuels.",
+      date: "18 mai 2024",
+      link: "https://example.com/metaverse-tech"
+    },
+    {
+      title: "Économie et Monétisation dans le Métaverse",
+      description: "Étude des nouveaux modèles économiques: terrains virtuels, NFT, cryptomonnaies et marchés du travail émergents dans des plateformes comme Decentraland et The Sandbox.",
+      date: "10 mai 2024",
+      link: "https://example.com/metaverse-economy"
+    },
+    {
+      title: "Impact Social et Éthique du Métaverse",
+      description: "Exploration des transformations sociales, enjeux d'identité numérique, confidentialité des données et risques psychologiques liés à l'adoption massive des environnements virtuels.",
+      date: "1 mai 2024",
+      link: "https://example.com/metaverse-ethics"
+    }
   ];
 
   return (
