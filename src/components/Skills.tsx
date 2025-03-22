@@ -142,7 +142,7 @@ const Skills = () => {
             <div className="glass p-6 rounded-lg max-w-3xl mx-auto mb-8">
               <h3 className="text-xl font-display font-semibold mb-3 text-center">
                 <FileCode className="inline-block mr-2" size={20} />
-                <span>Développement 👨‍💻</span>
+                <span>Compétences professionnelles</span>
               </h3>
               <p className="text-center text-foreground/70">
                 Ces compétences techniques ont été acquises durant ma formation en BTS SIO option SLAM,
