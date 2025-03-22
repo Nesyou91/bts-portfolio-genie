@@ -1,6 +1,6 @@
 
 import { FadeIn, FadeInUp, FadeInDown } from './Transitions';
-import { ArrowDown, Code, Database } from 'lucide-react';
+import { ArrowDown, Code } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -45,10 +45,6 @@ const Hero = () => {
               <div className="glass-primary p-4 rounded-lg flex items-center gap-3 hover-3d">
                 <Code className="text-primary" size={24} />
                 <span className="font-medium">Développement web</span>
-              </div>
-              <div className="glass-primary p-4 rounded-lg flex items-center gap-3 hover-3d">
-                <Database className="text-primary" size={24} />
-                <span className="font-medium">Bases de données</span>
               </div>
             </div>
           </FadeInUp>
