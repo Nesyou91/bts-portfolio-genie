@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -184,29 +185,30 @@ html {
   -webkit-backdrop-filter: blur(16px);
 }
 
-/* Bubble animation */
+/* Enhanced bubble animation */
 .bubble {
   position: absolute;
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.2);
   z-index: -1;
   animation: bubble-float 15s infinite ease-in-out;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
 
 @keyframes bubble-float {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) scale(1) rotate(0deg);
   }
   33% {
-    transform: translate(30px, -50px) scale(1.1);
+    transform: translate(30px, -50px) scale(1.1) rotate(10deg);
   }
   66% {
-    transform: translate(-20px, 20px) scale(0.9);
+    transform: translate(-20px, 20px) scale(0.9) rotate(-5deg);
   }
 }
 
@@ -220,12 +222,51 @@ html {
   transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
 }
 
-/* Glow effect */
+/* Enhanced glow effect */
 .glow {
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
   transition: box-shadow 0.3s ease;
 }
 
 .glow:hover {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.9);
+}
+
+/* Additional Animation Classes */
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 50% 20% 80% / 25% 80% 50% 50%;
+  }
+  75% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+}
+
+.animate-morph {
+  animation: morph 15s ease-in-out infinite;
+}
+
+@keyframes floatRotate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(15px) rotate(-5deg);
+  }
+}
+
+.animate-float-rotate {
+  animation: floatRotate 8s ease-in-out infinite;
 }
