@@ -67,13 +67,6 @@ const Parcours = () => {
       period: "Mai 2024 - Juin 2024",
       institution: "Linksi, Lens",
       description: "Création d'un site web pour un club de football avec formulaire d'inscription, présentation des équipes et calendrier des matchs. Développement d'une interface moderne, intuitive et responsive."
-    },
-    {
-      icon: Briefcase,
-      title: "Stage - Développeur Full Stack",
-      period: "Jan 2024 - Fév 2024",
-      institution: "Startup Innovante",
-      description: "Développement d'une application web de gestion pour une startup innovante. Utilisation de React, Node.js et MongoDB."
     }
   ];
 
