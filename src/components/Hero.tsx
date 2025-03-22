@@ -1,5 +1,5 @@
 
-import { FadeIn, FadeInUp, FadeInDown } from './Transitions';
+import { FadeIn, FadeInUp } from './Transitions';
 import { ArrowDown } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
@@ -23,7 +23,7 @@ const Hero = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Simplified particles with fewer properties
+    // Even more simplified particles
     const particles: { 
       x: number; 
       y: number; 
@@ -31,27 +31,22 @@ const Hero = () => {
       color: string; 
       speedX: number; 
       speedY: number;
-      opacity: number;
     }[] = [];
     
-    // Reduced particle count
-    const particleCount = 60;
+    // Further reduced particle count
+    const particleCount = 30;
     
-    // Simplified color palette
-    const colors = [
-      `hsla(250, 80%, 60%, 0.6)`, // Primary color
-      `hsla(262, 80%, 60%, 0.6)`, // Accent color
-    ];
+    // Simpler color palette - just one color with various opacities
+    const color = `hsla(250, 80%, 60%, 0.3)`;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 5 + 1,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        speedX: Math.random() * 0.5 - 0.25,
-        speedY: Math.random() * 0.5 - 0.25,
-        opacity: Math.random() * 0.5 + 0.2
+        radius: 2 + Math.random() * 3,
+        color: color,
+        speedX: Math.random() * 0.3 - 0.15,
+        speedY: Math.random() * 0.3 - 0.15
       });
     }
 
@@ -60,7 +55,7 @@ const Hero = () => {
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Simplified background
+      // Minimal background
       ctx.fillStyle = 'rgba(246, 246, 252, 0.01)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
@@ -81,30 +76,7 @@ const Hero = () => {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
-        ctx.globalAlpha = particle.opacity;
         ctx.fill();
-        ctx.globalAlpha = 1;
-      });
-      
-      // Simplified connections
-      particles.forEach((particleA, i) => {
-        particles.slice(i + 1).forEach(particleB => {
-          const dx = particleA.x - particleB.x;
-          const dy = particleA.y - particleB.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 150) {
-            ctx.beginPath();
-            const opacity = 0.2 * (1 - distance / 150);
-            ctx.strokeStyle = `rgba(120, 120, 240, ${opacity})`;
-            ctx.globalAlpha = opacity;
-            ctx.lineWidth = 1;
-            ctx.moveTo(particleA.x, particleA.y);
-            ctx.lineTo(particleB.x, particleB.y);
-            ctx.stroke();
-            ctx.globalAlpha = 1;
-          }
-        });
       });
       
       requestAnimationFrame(animate);
@@ -125,21 +97,29 @@ const Hero = () => {
         style={{ pointerEvents: 'none' }}
       />
       
-      {/* Simple gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent opacity-50 z-0" />
+      {/* Simple gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent z-0" />
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-6">
-            {/* Animated welcome text with letter-by-letter animation */}
-            <h2 className="inline-block text-2xl md:text-3xl font-bold text-accent tracking-wider">
+          <div className="mb-8">
+            {/* Simplified welcome animation */}
+            <h2 className="text-2xl md:text-3xl font-bold text-accent tracking-wider">
               {"BIENVENUE SUR MON PORTFOLIO".split('').map((letter, index) => (
                 <span 
                   key={index} 
-                  className="inline-block animate-float"
-                  style={{ 
-                    animationDelay: `${index * 0.1}s`,
-                    animationDuration: '2s'
+                  className="inline-block"
+                  style={{
+                    animationName: 'simple-float',
+                    animationDuration: '3s',
+                    animationTimingFunction: 'ease-in-out',
+                    animationIterationCount: 'infinite',
+                    animationDelay: `${index * 0.05}s`,
+                    animationDirection: 'alternate',
+                    '@keyframes simple-float': {
+                      '0%': { transform: 'translateY(0)' },
+                      '100%': { transform: 'translateY(-5px)' }
+                    }
                   }}
                 >
                   {letter === ' ' ? '\u00A0' : letter}
@@ -148,13 +128,13 @@ const Hero = () => {
             </h2>
           </div>
           
-          <div className="relative mb-6 py-4">
-            {/* Main heading with gradient glow animation */}
-            <h1 className="heading-xl bg-gradient-to-r from-primary via-accent to-indigo-500 bg-clip-text text-transparent relative z-10 animate-pulse-slow">
+          <div className="relative mb-12">
+            {/* Simplified name animation */}
+            <h1 className="heading-xl bg-gradient-to-r from-primary via-accent to-indigo-500 bg-clip-text text-transparent">
               Younes El Mourabit
             </h1>
-            {/* Subtle glow effect behind the name */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-indigo-500/20 filter blur-xl opacity-70 animate-pulse-slow" style={{animationDelay: '0.5s'}}></div>
+            {/* Subtle glow - simplified */}
+            <div className="absolute inset-0 bg-primary/10 filter blur-xl opacity-40" />
           </div>
           
           <FadeInUp delay={600}>
