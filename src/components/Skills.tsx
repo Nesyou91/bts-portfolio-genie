@@ -39,18 +39,24 @@ const TechSkillCard = ({
   name,
   icon,
   techIcon: TechIcon,
+  imageSrc,
   delay = 0
 }: { 
   name: string;
   icon: string;
-  techIcon: LucideIcon;
+  techIcon?: LucideIcon;
+  imageSrc?: string;
   delay?: number;
 }) => {
   return (
     <FadeInUp delay={delay} className="h-full">
       <div className="h-full glass rounded-lg p-6 hover:shadow-glossy transition-all duration-300 hover:translate-y-[-5px] flex flex-col items-center">
         <div className="bg-primary/10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
-          <TechIcon size={28} className="text-primary" />
+          {imageSrc ? (
+            <img src={imageSrc} alt={name} className="w-10 h-10 object-contain" />
+          ) : (
+            TechIcon && <TechIcon size={28} className="text-primary" />
+          )}
         </div>
         <div className="bg-code-bg rounded-lg p-4 mb-4 w-full overflow-hidden">
           <pre className="text-sm text-code-text font-mono">
@@ -180,7 +186,7 @@ function connect() {
 # Calculate factorial of 5
 result = factorial(5)
 print(f"Factorial: {result}")`,
-      techIcon: Hash
+      imageSrc: "/lovable-uploads/b011401b-9965-4e48-8a0c-1c4c159f70b4.png"
     },
     {
       name: "Java",
@@ -253,6 +259,7 @@ print(f"Factorial: {result}")`,
                       name={skill.name}
                       icon={skill.icon}
                       techIcon={skill.techIcon}
+                      imageSrc={skill.imageSrc}
                     />
                   ))}
                 </StaggeredChildren>
