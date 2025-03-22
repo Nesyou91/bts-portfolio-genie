@@ -1,4 +1,3 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield, FileCode, Building, Calendar } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -139,48 +138,7 @@ const Skills = () => {
           </FadeInUp>
         </div>
 
-        {/* Parcours Académique Section - Moved here */}
-        <div className="relative mb-12">
-          <div className="absolute inset-0 -z-10">
-            <div className="bubble opacity-20 top-[30%] right-[5%]" style={{ animationDelay: '4s', width: '180px', height: '180px' }} />
-            <div className="bubble opacity-15 bottom-[10%] left-[20%]" style={{ animationDelay: '7s', width: '220px', height: '220px' }} />
-          </div>
-          
-          <div className="text-center mb-12">
-            <FadeInUp>
-              <span className="chip bg-primary/10 text-primary mb-2">Formation</span>
-            </FadeInUp>
-            <FadeInUp delay={100}>
-              <h2 className="heading-lg mb-4 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Parcours Académique</h2>
-            </FadeInUp>
-            <FadeInUp delay={200}>
-              <p className="text-foreground/70 max-w-2xl mx-auto mb-8">
-                Mon chemin académique m'a permis d'acquérir les connaissances et compétences 
-                nécessaires pour exercer dans le domaine de l'informatique.
-              </p>
-            </FadeInUp>
-          </div>
-          
-          <div className="glass-intense rounded-lg p-8 max-w-3xl mx-auto hover:shadow-soft">
-            <FadeInUp>
-              <div className="flex items-start gap-4 mb-6">
-                <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 mt-1 animate-pulse-glow">
-                  <Building size={24} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-display font-semibold mb-1">BTS SIO option SLAM</h3>
-                  <div className="text-sm text-primary mb-2">Lycée Leonard vinci, Melun - 2023/2025</div>
-                  <p className="text-foreground/70">
-                    Diplôme de technicien supérieur en informatique spécialisé dans le développement d'applications.
-                    Formation aux méthodes et technologies modernes du développement logiciel et web.
-                  </p>
-                </div>
-              </div>
-            </FadeInUp>
-            
-            {/* Removed the Baccalauréat Technologique STMG section as requested */}
-          </div>
-        </div>
+        {/* Parcours Académique Section - Removed as requested */}
         
         {/* Tabs Section */}
         <FadeInUp delay={300}>

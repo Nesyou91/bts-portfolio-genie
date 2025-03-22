@@ -1,4 +1,3 @@
-
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
 import { Medal, GraduationCap, Calendar, Briefcase } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -40,14 +39,7 @@ const TimelineItem = ({
 
 const Education = () => {
   const academicItems = [
-    {
-      icon: GraduationCap,
-      title: "BTS SIO OPTION SLAM",
-      period: "septembre 2023 - juin 2025",
-      institution: "Lycée Leonard vinci, Melun",
-      description: "Diplôme de technicien supérieur en informatique spécialisé dans le développement d'applications. Formation aux méthodes et technologies modernes du développement logiciel et web."
-    }
-    // Removed the Baccalauréat Technologique STMG entry as requested
+    
   ];
 
   const internshipItems = [
