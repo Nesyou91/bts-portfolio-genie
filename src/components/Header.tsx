@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, GraduationCap } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,9 +19,9 @@ const Header = () => {
   const navLinks = [
     { name: "Accueil", href: "#home" },
     { name: "A propos", href: "#about", icon: <User size={16} className="mr-1" /> },
+    { name: "Parcours", href: "#education", icon: <GraduationCap size={16} className="mr-1" /> },
     { name: "Compétences", href: "#skills" },
     { name: "Projets", href: "#projects" },
-    { name: "Formation", href: "#education" },
     { name: "Contact", href: "#contact" },
   ];
 

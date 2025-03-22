@@ -108,18 +108,9 @@ const Hero = () => {
               {"BIENVENUE SUR MON PORTFOLIO".split('').map((letter, index) => (
                 <span 
                   key={index} 
-                  className="inline-block"
+                  className="inline-block animate-simple-float"
                   style={{
-                    animationName: 'simple-float',
-                    animationDuration: '3s',
-                    animationTimingFunction: 'ease-in-out',
-                    animationIterationCount: 'infinite',
                     animationDelay: `${index * 0.05}s`,
-                    animationDirection: 'alternate',
-                    '@keyframes simple-float': {
-                      '0%': { transform: 'translateY(0)' },
-                      '100%': { transform: 'translateY(-5px)' }
-                    }
                   }}
                 >
                   {letter === ' ' ? '\u00A0' : letter}
