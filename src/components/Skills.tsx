@@ -1,6 +1,6 @@
 
 import { FadeInUp, StaggeredChildren } from './Transitions';
-import { Code, Server, Database, Layout, Globe, Shield, FileCode, Braces, Paintbrush, FileBadge, Hash, PanelLeft, Coffee } from 'lucide-react';
+import { Code, Server, Database, Layout, Globe, Shield, FileCode, Paintbrush, Braces, FileBadge, Hash, PanelLeft, Coffee } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 import {
