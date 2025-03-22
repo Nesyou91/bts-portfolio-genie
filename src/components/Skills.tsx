@@ -1,6 +1,6 @@
 
 import { FadeInUp, StaggeredChildren } from './Transitions';
-import { Code, Server, Database, Layout, Globe, Shield, FileCode, Gear, LaptopCode, UserCheck, BrainCircuit, Binary } from 'lucide-react';
+import { Code, Server, Database, Layout, Globe, Shield, FileCode, Settings, Laptop, UserCheck, BrainCircuit, Binary } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 import {
@@ -64,7 +64,7 @@ const Skills = () => {
     {
       icon: Code,
       title: "Développement d'applications",
-      description: "Conception et création d'applications desktop et web en utilisant différents langages (Java, C#, PHP, JavaScript) et frameworks modernes."
+      description: "Conception et réalisation d'applications en utilisant les langages et frameworks modernes (Java, C#, PHP, JavaScript)."
     },
     {
       icon: Database,
@@ -72,12 +72,12 @@ const Skills = () => {
       description: "Modélisation, conception et administration de bases de données SQL (MySQL, PostgreSQL) et NoSQL. Création de requêtes complexes et optimisation."
     },
     {
-      icon: LaptopCode,
+      icon: Laptop,
       title: "Développement web avancé",
       description: "Maîtrise des frameworks front-end (React, Angular) et back-end (Laravel, Spring). Développement d'API RESTful et architectures MVC."
     },
     {
-      icon: Gear,
+      icon: Settings,
       title: "Méthodes agiles",
       description: "Application des méthodologies agiles (Scrum, Kanban) dans le développement de logiciels. Gestion de versions avec Git et travail collaboratif."
     },
