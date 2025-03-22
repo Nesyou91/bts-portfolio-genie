@@ -1,6 +1,6 @@
 
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
-import { Medal, GraduationCap, Calendar } from 'lucide-react';
+import { Medal, GraduationCap, Calendar, Briefcase } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
 const TimelineItem = ({ 
@@ -39,7 +39,7 @@ const TimelineItem = ({
 };
 
 const Education = () => {
-  const timelineItems = [
+  const academicItems = [
     {
       icon: GraduationCap,
       title: "BTS SIO option SLAM",
@@ -53,6 +53,23 @@ const Education = () => {
       period: "2019 - 2022",
       institution: "Lycée Général, Paris",
       description: "Spécialité Mathématiques et Numérique et Sciences Informatiques (NSI). Option Mathématiques Expertes."
+    }
+  ];
+
+  const internshipItems = [
+    {
+      icon: Briefcase,
+      title: "Stage – Refonte et mise en page d'un site web sous WordPress",
+      period: "janvier 2025 - février 2025",
+      institution: "Omac, Torcy",
+      description: "Refonte du site d'une association : amélioration du design, mise en page des contenus, personnalisation du thème et optimisation de la navigation."
+    },
+    {
+      icon: Briefcase,
+      title: "Stage de 1er année BTS SIO",
+      period: "mai 2024 - juin 2024",
+      institution: "Linksi, Lens",
+      description: "Développeur Web – Conception de site pour un club de football. Création d'un site web avec formulaire d'inscription, présentation des équipes et calendrier des matchs. Développement d'une interface moderne, intuitive et responsive."
     }
   ];
 
@@ -83,7 +100,24 @@ const Education = () => {
             </FadeInUp>
 
             <StaggeredChildren>
-              {timelineItems.map((item, index) => (
+              {academicItems.map((item, index) => (
+                <TimelineItem
+                  key={index}
+                  icon={item.icon}
+                  title={item.title}
+                  period={item.period}
+                  institution={item.institution}
+                  description={item.description}
+                />
+              ))}
+            </StaggeredChildren>
+            
+            <FadeInUp delay={300}>
+              <h2 className="heading-md mt-6 mb-6">Expériences Professionnelles</h2>
+            </FadeInUp>
+            
+            <StaggeredChildren>
+              {internshipItems.map((item, index) => (
                 <TimelineItem
                   key={index}
                   icon={item.icon}
