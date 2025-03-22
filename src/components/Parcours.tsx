@@ -60,13 +60,6 @@ const Parcours = () => {
       period: "Jan 2024 - Fév 2024",
       institution: "Startup Innovante",
       description: "Développement d'une application web de gestion pour une startup innovante. Utilisation de React, Node.js et MongoDB."
-    },
-    {
-      icon: Briefcase,
-      title: "Stage - Assistant IT",
-      period: "Mai 2023 - Juin 2023",
-      institution: "Grande Entreprise",
-      description: "Participation à la maintenance du système d'information, développement d'outils internes, support aux utilisateurs."
     }
   ];
 
