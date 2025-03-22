@@ -66,14 +66,27 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden relative">
+      {/* Noise overlay for texture */}
       <div className="fixed inset-0 bg-noise opacity-5 pointer-events-none z-[-1]"></div>
       
-      {/* Animated background gradients */}
-      <div className="fixed inset-0 pointer-events-none z-[-1]">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-primary/5 to-transparent opacity-70 blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-radial from-accent/5 to-transparent opacity-70 blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-conic from-primary/5 via-transparent to-accent/5 opacity-40 animate-rotate-slow"></div>
+      {/* Enhanced animated background gradients */}
+      <div className="fixed inset-0 pointer-events-none z-[-2] overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-primary/10 to-transparent opacity-70 blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-radial from-accent/10 to-transparent opacity-70 blur-3xl"></div>
+        
+        {/* Animated orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-500/20 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-gradient-to-r from-pink-400/20 to-indigo-500/20 blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-2/3 left-1/3 w-64 h-64 rounded-full bg-gradient-to-r from-green-400/20 to-blue-500/20 blur-3xl animate-pulse-slow" style={{animationDelay: '4s'}}></div>
+        
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 via-purple-50/40 to-pink-50/40 animate-gradient-shift opacity-60"></div>
+        
+        {/* Moving gradient lines */}
+        <div className="absolute h-px w-full top-1/4 bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-shimmer"></div>
+        <div className="absolute h-px w-full top-2/4 bg-gradient-to-r from-transparent via-accent/20 to-transparent animate-shimmer" style={{animationDelay: '1s'}}></div>
+        <div className="absolute h-px w-full top-3/4 bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-shimmer" style={{animationDelay: '2s'}}></div>
       </div>
 
       <Header />

@@ -36,13 +36,14 @@ const Hero = () => {
       growth: number;
     }[] = [];
     
-    const particleCount = 80; // Increased count
+    const particleCount = 100; // Increased count for more density
     const colors = [
-      'rgba(59, 130, 246, 0.4)', // Blue
-      'rgba(99, 102, 241, 0.4)', // Indigo
-      'rgba(139, 92, 246, 0.4)',  // Purple
-      'rgba(167, 139, 250, 0.4)', // Violet
-      'rgba(217, 70, 239, 0.4)'   // Pink
+      'rgba(99, 102, 241, 0.6)', // Indigo
+      'rgba(139, 92, 246, 0.6)',  // Purple
+      'rgba(167, 139, 250, 0.6)', // Violet
+      'rgba(217, 70, 239, 0.6)',   // Pink
+      'rgba(79, 70, 229, 0.6)',   // Blue
+      'rgba(236, 72, 153, 0.6)'   // Rose
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -51,10 +52,10 @@ const Hero = () => {
         y: Math.random() * canvas.height,
         radius: Math.random() * 6 + 1,
         color: colors[Math.floor(Math.random() * colors.length)],
-        speedX: Math.random() * 0.6 - 0.3,
-        speedY: Math.random() * 0.6 - 0.3,
-        opacity: Math.random() * 0.5 + 0.2,
-        growth: Math.random() < 0.5 ? 0.02 : -0.02
+        speedX: Math.random() * 0.8 - 0.4, // Increased speed
+        speedY: Math.random() * 0.8 - 0.4, // Increased speed
+        opacity: Math.random() * 0.5 + 0.3, // Slightly more opacity
+        growth: Math.random() < 0.5 ? 0.03 : -0.03 // Faster growth/shrink
       });
     }
 
@@ -90,7 +91,7 @@ const Hero = () => {
         
         // Pulse animation - change radius
         particle.radius += particle.growth;
-        if (particle.radius > 8 || particle.radius < 1) {
+        if (particle.radius > 10 || particle.radius < 1) { // Increased max size
           particle.growth *= -1;
         }
         
@@ -101,9 +102,9 @@ const Hero = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
           
           if (distance < 200) {
-            const force = 0.2 * (1 - distance / 200);
-            particle.x += dx * force / 30;
-            particle.y += dy * force / 30;
+            const force = 0.3 * (1 - distance / 200); // Increased force
+            particle.x += dx * force / 25;
+            particle.y += dy * force / 25;
           }
         }
         
@@ -116,51 +117,56 @@ const Hero = () => {
           particle.speedY *= -1;
         }
         
-        // Draw particle with glow effect
+        // Draw particle with enhanced glow effect
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
         ctx.globalAlpha = particle.opacity;
         ctx.fill();
         
-        // Add glow
+        // Add stronger glow
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
-          particle.x, particle.y, particle.radius * 2
+          particle.x, particle.y, particle.radius * 3
         );
         gradient.addColorStop(0, particle.color);
         gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
         
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius * 2, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.radius * 3, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
-        ctx.globalAlpha = particle.opacity * 0.5;
+        ctx.globalAlpha = particle.opacity * 0.6; // Stronger glow
         ctx.fill();
         
         ctx.globalAlpha = 1;
       });
       
-      // Draw connections between particles
+      // Draw connections between particles with enhanced visuals
       particles.forEach((particleA, i) => {
         particles.slice(i + 1).forEach(particleB => {
           const dx = particleA.x - particleB.x;
           const dy = particleA.y - particleB.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           
-          if (distance < 150) { // Increased connection distance
+          if (distance < 150) { // Connection distance
             ctx.beginPath();
             
-            // Gradient connections
+            // Enhanced gradient connections
             const gradient = ctx.createLinearGradient(
               particleA.x, particleA.y, 
               particleB.x, particleB.y
             );
-            gradient.addColorStop(0, particleA.color);
-            gradient.addColorStop(1, particleB.color);
+            
+            // Extract color values for more dynamic gradients
+            const colorA = particleA.color.replace('rgba(', '').replace(')', '').split(',');
+            const colorB = particleB.color.replace('rgba(', '').replace(')', '').split(',');
+            
+            gradient.addColorStop(0, `rgba(${colorA[0]}, ${colorA[1]}, ${colorA[2]}, ${0.2 * (1 - distance / 150)})`);
+            gradient.addColorStop(1, `rgba(${colorB[0]}, ${colorB[1]}, ${colorB[2]}, ${0.2 * (1 - distance / 150)})`);
             
             ctx.strokeStyle = gradient;
-            ctx.globalAlpha = 0.15 * (1 - distance / 150);
-            ctx.lineWidth = 0.8;
+            ctx.globalAlpha = 0.2 * (1 - distance / 150); // Slightly higher base opacity
+            ctx.lineWidth = 1.2; // Thicker lines
             ctx.moveTo(particleA.x, particleA.y);
             ctx.lineTo(particleB.x, particleB.y);
             ctx.stroke();
@@ -190,19 +196,17 @@ const Hero = () => {
         style={{ pointerEvents: 'none' }}
       />
       
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-radial from-blue-50 to-transparent opacity-70 z-0" />
+      {/* Enhanced background elements */}
+      <div className="absolute inset-0 bg-gradient-radial from-blue-50/50 to-transparent opacity-80 z-0" />
       <div className="absolute inset-0 bg-noise opacity-5 z-0" />
       
-      {/* Animated background bubbles */}
-      <div className="bubble opacity-30 top-[20%] left-[15%]" style={{ animationDelay: '0s', width: '300px', height: '300px' }} />
-      <div className="bubble opacity-20 top-[50%] right-[10%]" style={{ animationDelay: '3s', width: '250px', height: '250px' }} />
-      <div className="bubble opacity-25 bottom-[15%] left-[25%]" style={{ animationDelay: '6s', width: '200px', height: '200px' }} />
+      {/* Animated background bubbles with enhanced styles */}
+      <div className="bubble opacity-40 top-[20%] left-[15%] bg-gradient-to-br from-indigo-400/20 to-purple-500/20" style={{ animationDelay: '0s', width: '350px', height: '350px' }} />
+      <div className="bubble opacity-30 top-[50%] right-[10%] bg-gradient-to-br from-pink-400/20 to-purple-500/20" style={{ animationDelay: '3s', width: '300px', height: '300px' }} />
+      <div className="bubble opacity-35 bottom-[15%] left-[25%] bg-gradient-to-br from-blue-400/20 to-indigo-500/20" style={{ animationDelay: '6s', width: '250px', height: '250px' }} />
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Removed the Portfolio BTS SIO SLAM span */}
-          
           <FadeInDown delay={150}>
             <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 tracking-wider animate-float">
               BIENVENUE SUR MON PORTFOLIO
@@ -233,8 +237,8 @@ const Hero = () => {
         </a>
       </FadeIn>
       
-      {/* Animated gradient line */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 animated-gradient"></div>
+      {/* Enhanced animated gradient line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-shimmer"></div>
     </section>
   );
 };
