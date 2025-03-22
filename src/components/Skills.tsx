@@ -1,4 +1,3 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield, FileCode, Settings, Laptop, UserCheck, BrainCircuit, Binary } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -69,7 +68,7 @@ const Skills = () => {
     {
       icon: Database,
       title: "Bases de données",
-      description: "Modélisation, conception et administration de bases de données SQL (MySQL, PostgreSQL) et NoSQL. Création de requêtes complexes et optimisation."
+      description: "Conception, manipulation et administration de bases de données relationnelles (MySQL)."
     },
     {
       icon: Laptop,
