@@ -75,11 +75,6 @@ const Skills = () => {
       description: "Maîtrise des frameworks front-end (React, Angular) et back-end (Laravel, Spring). Développement d'API RESTful et architectures MVC."
     },
     {
-      icon: Settings,
-      title: "Méthodes agiles",
-      description: "Application des méthodologies agiles (Scrum, Kanban) dans le développement de logiciels. Gestion de versions avec Git et travail collaboratif."
-    },
-    {
       icon: UserCheck,
       title: "Interfaces utilisateur",
       description: "Conception d'interfaces ergonomiques et accessibles. Respect des normes d'UX/UI et adaptation aux besoins spécifiques des utilisateurs."
