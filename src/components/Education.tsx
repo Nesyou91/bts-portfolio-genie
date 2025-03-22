@@ -1,4 +1,3 @@
-
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
 import { Medal, GraduationCap, Calendar, Briefcase } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
