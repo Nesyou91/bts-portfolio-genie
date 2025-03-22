@@ -1,6 +1,6 @@
 
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
-import { Medal, GraduationCap, Briefcase, Calendar } from 'lucide-react';
+import { Medal, GraduationCap, Calendar } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
 const TimelineItem = ({ 
@@ -48,34 +48,6 @@ const Education = () => {
       description: "Formation aux méthodes et technologies de développement d'applications et de services. Spécialisation en Solutions Logicielles et Applications Métiers (SLAM)."
     },
     {
-      icon: Briefcase,
-      title: "Stage – Refonte et mise en page d'un site web sous WordPress",
-      period: "Janvier 2025 - Février 2025",
-      institution: "Omac, Torcy",
-      description: "Refonte du site d'une association : amélioration du design, mise en page des contenus, personnalisation du thème et optimisation de la navigation."
-    },
-    {
-      icon: Briefcase,
-      title: "Stage - Développeur Web",
-      period: "Mai 2024 - Juin 2024",
-      institution: "Linksi, Lens",
-      description: "Création d'un site web pour un club de football avec formulaire d'inscription, présentation des équipes et calendrier des matchs. Développement d'une interface moderne, intuitive et responsive."
-    },
-    {
-      icon: Briefcase,
-      title: "Stage - Développeur Full Stack",
-      period: "Jan 2024 - Fév 2024",
-      institution: "Startup Innovante",
-      description: "Développement d'une application web de gestion pour une startup innovante. Utilisation de React, Node.js et MongoDB."
-    },
-    {
-      icon: Briefcase,
-      title: "Stage - Assistant IT",
-      period: "Mai 2023 - Juin 2023",
-      institution: "Grande Entreprise",
-      description: "Participation à la maintenance du système d'information, développement d'outils internes, support aux utilisateurs."
-    },
-    {
       icon: GraduationCap,
       title: "Baccalauréat Général",
       period: "2019 - 2022",
@@ -100,11 +72,11 @@ const Education = () => {
               <span className="chip bg-primary/10 text-primary mb-2">Parcours</span>
             </FadeInUp>
             <FadeInUp delay={100}>
-              <h2 className="heading-lg mb-4">Formation & Expérience</h2>
+              <h2 className="heading-lg mb-4">Formation Académique</h2>
             </FadeInUp>
             <FadeInUp delay={200}>
               <p className="text-foreground/70 mb-10">
-                Mon parcours académique et professionnel m'a permis d'acquérir les compétences 
+                Mon parcours académique m'a permis d'acquérir les compétences 
                 techniques et relationnelles nécessaires pour réussir dans le domaine des services
                 informatiques aux organisations.
               </p>
