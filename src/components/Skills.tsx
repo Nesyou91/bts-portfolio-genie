@@ -211,42 +211,42 @@ print(f"Factorial: {result}")`
                   <span>Développement 👨‍💻</span>
                 </TabsTrigger>
               </TabsList>
+              
+              <TabsContent value="general">
+                <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                  {skills.map((skill, index) => (
+                    <SkillCard
+                      key={index}
+                      icon={skill.icon}
+                      title={skill.title}
+                      description={skill.description}
+                    />
+                  ))}
+                </StaggeredChildren>
+              </TabsContent>
+              
+              <TabsContent value="dev">
+                <FadeInUp delay={100}>
+                  <div className="max-w-3xl mx-auto mb-8 mt-6">
+                    <p className="text-center text-foreground/70">
+                      Toutes ces connaissances ont été acquises de différentes façons. Elles ont été acquises durant mes études en BTS SIO et d'autres par ma propre initiative en essayant de mettre en place des solutions. J'ai également relevé les défis organisés, ce qui permet d'effectuer des recherches et aller encore plus loin.
+                    </p>
+                  </div>
+                </FadeInUp>
+                
+                <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {techSkills.map((skill, index) => (
+                    <TechSkillCard
+                      key={index}
+                      name={skill.name}
+                      icon={skill.icon}
+                    />
+                  ))}
+                </StaggeredChildren>
+              </TabsContent>
             </Tabs>
           </FadeInUp>
         </div>
-
-        <TabsContent value="general" className={activeTab === "general" ? "block" : "hidden"}>
-          <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skills.map((skill, index) => (
-              <SkillCard
-                key={index}
-                icon={skill.icon}
-                title={skill.title}
-                description={skill.description}
-              />
-            ))}
-          </StaggeredChildren>
-        </TabsContent>
-        
-        <TabsContent value="dev" className={activeTab === "dev" ? "block" : "hidden"}>
-          <FadeInUp delay={100}>
-            <div className="max-w-3xl mx-auto mb-8">
-              <p className="text-center text-foreground/70">
-                Toutes ces connaissances ont été acquises de différentes façons. Elles ont été acquises durant mes études en BTS SIO et d'autres par ma propre initiative en essayant de mettre en place des solutions. J'ai également relevé les défis organisés, ce qui permet d'effectuer des recherches et aller encore plus loin.
-              </p>
-            </div>
-          </FadeInUp>
-          
-          <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {techSkills.map((skill, index) => (
-              <TechSkillCard
-                key={index}
-                name={skill.name}
-                icon={skill.icon}
-              />
-            ))}
-          </StaggeredChildren>
-        </TabsContent>
       </div>
     </section>
   );
