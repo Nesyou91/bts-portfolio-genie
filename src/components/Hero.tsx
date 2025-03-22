@@ -25,20 +25,56 @@ const Hero = () => {
     window.addEventListener('resize', setCanvasSize);
 
     // Create particles
-    const particles: { x: number; y: number; radius: number; color: string; speedX: number; speedY: number; }[] = [];
-    const particleCount = 50;
-    const colors = ['rgba(59, 130, 246, 0.2)', 'rgba(99, 102, 241, 0.2)', 'rgba(139, 92, 246, 0.2)'];
+    const particles: { 
+      x: number; 
+      y: number; 
+      radius: number; 
+      color: string; 
+      speedX: number; 
+      speedY: number;
+      opacity: number;
+      growth: number;
+    }[] = [];
+    
+    const particleCount = 80; // Increased count
+    const colors = [
+      'rgba(59, 130, 246, 0.4)', // Blue
+      'rgba(99, 102, 241, 0.4)', // Indigo
+      'rgba(139, 92, 246, 0.4)',  // Purple
+      'rgba(167, 139, 250, 0.4)', // Violet
+      'rgba(217, 70, 239, 0.4)'   // Pink
+    ];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 5 + 1,
+        radius: Math.random() * 6 + 1,
         color: colors[Math.floor(Math.random() * colors.length)],
-        speedX: Math.random() * 0.5 - 0.25,
-        speedY: Math.random() * 0.5 - 0.25
+        speedX: Math.random() * 0.6 - 0.3,
+        speedY: Math.random() * 0.6 - 0.3,
+        opacity: Math.random() * 0.5 + 0.2,
+        growth: Math.random() < 0.5 ? 0.02 : -0.02
       });
     }
+
+    // Mouse interaction
+    let mouseX = 0;
+    let mouseY = 0;
+    let isMouseMoving = false;
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      isMouseMoving = true;
+      
+      // Reset flag after 2 seconds of inactivity
+      setTimeout(() => {
+        isMouseMoving = false;
+      }, 2000);
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
 
     // Animation function
     const animate = () => {
@@ -48,8 +84,28 @@ const Hero = () => {
       
       // Update and draw particles
       particles.forEach(particle => {
+        // Update position
         particle.x += particle.speedX;
         particle.y += particle.speedY;
+        
+        // Pulse animation - change radius
+        particle.radius += particle.growth;
+        if (particle.radius > 8 || particle.radius < 1) {
+          particle.growth *= -1;
+        }
+        
+        // Mouse interaction - attract particles when mouse is moving
+        if (isMouseMoving) {
+          const dx = mouseX - particle.x;
+          const dy = mouseY - particle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 200) {
+            const force = 0.2 * (1 - distance / 200);
+            particle.x += dx * force / 30;
+            particle.y += dy * force / 30;
+          }
+        }
         
         // Bounce off walls
         if (particle.x < 0 || particle.x > canvas.width) {
@@ -60,11 +116,28 @@ const Hero = () => {
           particle.speedY *= -1;
         }
         
-        // Draw particle
+        // Draw particle with glow effect
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
+        ctx.globalAlpha = particle.opacity;
         ctx.fill();
+        
+        // Add glow
+        const gradient = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, particle.radius * 2
+        );
+        gradient.addColorStop(0, particle.color);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius * 2, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.globalAlpha = particle.opacity * 0.5;
+        ctx.fill();
+        
+        ctx.globalAlpha = 1;
       });
       
       // Draw connections between particles
@@ -74,13 +147,24 @@ const Hero = () => {
           const dy = particleA.y - particleB.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           
-          if (distance < 100) {
+          if (distance < 150) { // Increased connection distance
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.5;
+            
+            // Gradient connections
+            const gradient = ctx.createLinearGradient(
+              particleA.x, particleA.y, 
+              particleB.x, particleB.y
+            );
+            gradient.addColorStop(0, particleA.color);
+            gradient.addColorStop(1, particleB.color);
+            
+            ctx.strokeStyle = gradient;
+            ctx.globalAlpha = 0.15 * (1 - distance / 150);
+            ctx.lineWidth = 0.8;
             ctx.moveTo(particleA.x, particleA.y);
             ctx.lineTo(particleB.x, particleB.y);
             ctx.stroke();
+            ctx.globalAlpha = 1;
           }
         });
       });
@@ -93,6 +177,7 @@ const Hero = () => {
     // Cleanup
     return () => {
       window.removeEventListener('resize', setCanvasSize);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
