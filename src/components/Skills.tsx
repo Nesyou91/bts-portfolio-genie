@@ -1,3 +1,4 @@
+
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield, FileCode, Briefcase, Building, Calendar } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -35,14 +36,10 @@ const SkillCard = ({
 
 const TechSkillCard = ({ 
   name,
-  icon,
-  techIcon,
   imageSrc,
   delay = 0
 }: { 
   name: string;
-  icon?: string;
-  techIcon?: LucideIcon;
   imageSrc?: string;
   delay?: number;
 }) => {
@@ -50,10 +47,8 @@ const TechSkillCard = ({
     <FadeInUp delay={delay} className="h-full">
       <div className="h-full glass rounded-lg p-6 hover:shadow-glossy transition-all duration-300 hover:translate-y-[-5px] flex flex-col items-center">
         <div className="bg-primary/10 text-primary w-14 h-14 rounded-full flex items-center justify-center mb-4">
-          {imageSrc ? (
+          {imageSrc && (
             <img src={imageSrc} alt={name} className="w-10 h-10 object-contain" />
-          ) : (
-            techIcon && <techIcon size={28} className="text-primary" />
           )}
         </div>
         <h3 className="text-lg font-display font-semibold">{name}</h3>
@@ -178,14 +173,15 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="section-padding bg-secondary/30">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="skills" className="section-padding bg-gradient-to-b from-white to-blue-50">
+      <div className="absolute inset-0 bg-noise opacity-5 z-0" />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <FadeInUp>
             <span className="chip bg-primary/10 text-primary mb-2">Expertises</span>
           </FadeInUp>
           <FadeInUp delay={100}>
-            <h2 className="heading-lg mb-4">Compétences professionnelles</h2>
+            <h2 className="heading-lg mb-4 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Compétences professionnelles</h2>
           </FadeInUp>
           <FadeInUp delay={200}>
             <p className="text-foreground/70 max-w-2xl mx-auto mb-8">
@@ -219,7 +215,7 @@ const Skills = () => {
               
               <TabsContent value="dev">
                 <FadeInUp delay={100}>
-                  <div className="max-w-3xl mx-auto mb-8 mt-6">
+                  <div className="glass p-6 rounded-lg max-w-3xl mx-auto mb-8 mt-6">
                     <p className="text-center text-foreground/70">
                       Toutes ces connaissances ont été acquises de différentes façons. Elles ont été acquises durant mes études en BTS SIO et d'autres par ma propre initiative en essayant de mettre en place des solutions. J'ai également relevé les défis organisés, ce qui permet d'effectuer des recherches et aller encore plus loin.
                     </p>
@@ -231,7 +227,6 @@ const Skills = () => {
                     <TechSkillCard
                       key={index}
                       name={skill.name}
-                      techIcon={skill.techIcon}
                       imageSrc={skill.imageSrc}
                     />
                   ))}
@@ -241,13 +236,18 @@ const Skills = () => {
           </FadeInUp>
         </div>
         
-        <div className="mt-24">
+        <div className="mt-24 relative">
+          <div className="absolute inset-0 -z-10">
+            <div className="bubble opacity-20 top-[10%] left-[5%]" style={{ animationDelay: '2s', width: '200px', height: '200px' }} />
+            <div className="bubble opacity-15 bottom-[20%] right-[10%]" style={{ animationDelay: '5s', width: '250px', height: '250px' }} />
+          </div>
+          
           <div className="text-center mb-12">
             <FadeInUp>
               <span className="chip bg-primary/10 text-primary mb-2">Expérience</span>
             </FadeInUp>
             <FadeInUp delay={100}>
-              <h2 className="heading-lg mb-4">Mon Parcours Professionnel</h2>
+              <h2 className="heading-lg mb-4 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Mon Parcours Professionnel</h2>
             </FadeInUp>
             <FadeInUp delay={200}>
               <p className="text-foreground/70 max-w-2xl mx-auto mb-8">
@@ -270,13 +270,18 @@ const Skills = () => {
           </StaggeredChildren>
         </div>
         
-        <div className="mt-24">
+        <div className="mt-24 relative">
+          <div className="absolute inset-0 -z-10">
+            <div className="bubble opacity-20 top-[30%] right-[5%]" style={{ animationDelay: '4s', width: '180px', height: '180px' }} />
+            <div className="bubble opacity-15 bottom-[10%] left-[20%]" style={{ animationDelay: '7s', width: '220px', height: '220px' }} />
+          </div>
+          
           <div className="text-center mb-12">
             <FadeInUp>
               <span className="chip bg-primary/10 text-primary mb-2">Formation</span>
             </FadeInUp>
             <FadeInUp delay={100}>
-              <h2 className="heading-lg mb-4">Parcours</h2>
+              <h2 className="heading-lg mb-4 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Parcours</h2>
             </FadeInUp>
             <FadeInUp delay={200}>
               <p className="text-foreground/70 max-w-2xl mx-auto mb-8">
@@ -286,10 +291,10 @@ const Skills = () => {
             </FadeInUp>
           </div>
           
-          <div className="glass rounded-lg p-8 max-w-3xl mx-auto">
+          <div className="glass-intense rounded-lg p-8 max-w-3xl mx-auto hover:shadow-soft">
             <FadeInUp>
               <div className="flex items-start gap-4 mb-6">
-                <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 mt-1">
+                <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 mt-1 animate-pulse-glow">
                   <Building size={24} className="text-primary" />
                 </div>
                 <div>
@@ -305,7 +310,7 @@ const Skills = () => {
             
             <FadeInUp delay={200}>
               <div className="flex items-start gap-4">
-                <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 mt-1">
+                <div className="bg-primary/10 text-primary w-12 h-12 rounded-lg flex items-center justify-center shrink-0 mt-1 animate-pulse-glow">
                   <Building size={24} className="text-primary" />
                 </div>
                 <div>

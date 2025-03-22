@@ -125,6 +125,38 @@ export default {
 						transform: 'translateX(0)',
 						opacity: '1'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						boxShadow: '0 0 15px 5px rgba(59, 130, 246, 0.3)' 
+					},
+					'50%': { 
+						boxShadow: '0 0 30px 10px rgba(59, 130, 246, 0.5)' 
+					}
+				},
+				'float': {
+					'0%, 100%': { 
+						transform: 'translateY(0)' 
+					},
+					'50%': { 
+						transform: 'translateY(-10px)' 
+					}
+				},
+				'rotate-slow': {
+					from: { 
+						transform: 'rotate(0deg)' 
+					},
+					to: { 
+						transform: 'rotate(360deg)' 
+					}
+				},
+				'morph-gradient': {
+					'0%, 100%': { 
+						backgroundPosition: '0% 50%' 
+					},
+					'50%': { 
+						backgroundPosition: '100% 50%' 
+					}
 				}
 			},
 			animation: {
@@ -134,15 +166,23 @@ export default {
 				'fade-in-up': 'fade-in-up 0.7s ease-out',
 				'fade-in-down': 'fade-in-down 0.7s ease-out',
 				'slide-in-right': 'slide-in-right 0.5s ease-out',
-				'slide-in-left': 'slide-in-left 0.5s ease-out'
+				'slide-in-left': 'slide-in-left 0.5s ease-out',
+				'pulse-glow': 'pulse-glow 2s infinite ease-in-out',
+				'float': 'float 3s infinite ease-in-out',
+				'rotate-slow': 'rotate-slow 12s linear infinite',
+				'morph-gradient': 'morph-gradient 10s ease infinite'
 			},
 			boxShadow: {
 				'soft': '0 4px 30px rgba(0, 0, 0, 0.1)',
-				'glossy': '0 8px 32px 0 rgba(31, 38, 135, 0.07)'
+				'glossy': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+				'neon': '0 0 5px theme("colors.primary.DEFAULT"), 0 0 20px theme("colors.primary.DEFAULT")',
+				'inner-glow': 'inset 0 0 10px rgba(59, 130, 246, 0.5)'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")"
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+				'gradient-shine': 'linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1))'
 			}
 		}
 	},

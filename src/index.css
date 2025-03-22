@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -6,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 50% 98%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -15,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 210 100% 50%;
+    --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 217 33% 96%;
     --secondary-foreground: 222 47% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 224 76% 48%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,7 +33,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221 83% 53%;
 
     --radius: 0.75rem;
     
@@ -49,6 +50,17 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
     scroll-behavior: smooth;
+    background-image: radial-gradient(
+      circle at 80% 10%,
+      hsla(221, 83%, 95%, 0.8),
+      hsla(210, 50%, 98%, 0.2)
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      hsla(224, 76%, 90%, 0.6),
+      hsla(210, 50%, 98%, 0.2)
+    );
+    background-attachment: fixed;
   }
 
   html {
@@ -58,11 +70,19 @@
 
 @layer components {
   .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-soft;
+    @apply bg-white/90 backdrop-blur-lg border border-white/50 shadow-soft hover:shadow-glossy transition-all duration-300;
+  }
+  
+  .glass-intense {
+    @apply bg-white/90 backdrop-blur-xl border border-white/70 shadow-glossy;
+  }
+  
+  .glass-primary {
+    @apply bg-primary/10 backdrop-blur-md border border-primary/30 shadow-soft;
   }
   
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-16 md:py-28;
   }
   
   .heading-xl {
@@ -98,6 +118,49 @@
   .text-code-text {
     color: hsl(var(--code-text));
   }
+  
+  .gradient-border {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    padding: 1px;
+    background: linear-gradient(60deg, hsla(221, 83%, 53%, 0.8) 0%, hsla(224, 76%, 58%, 0.8) 35%, hsla(261, 72%, 63%, 0.8) 100%);
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: calc(var(--radius) - 2px);
+    background: white;
+    z-index: 0;
+  }
+  
+  .gradient-border > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .animated-gradient {
+    background: linear-gradient(60deg, hsla(221, 83%, 53%, 0.8) 0%, hsla(224, 76%, 58%, 0.8) 35%, hsla(261, 72%, 63%, 0.8) 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
+  }
+  
+  @keyframes gradientMove {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  @keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
 }
 
 /* Smooth scrolling for anchors */
@@ -120,4 +183,50 @@ html {
 .backdrop-blur-glass {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+}
+
+/* Bubble animation */
+.bubble {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: -1;
+  animation: bubble-float 15s infinite ease-in-out;
+}
+
+@keyframes bubble-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+/* 3D hover effect */
+.hover-3d {
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+  transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
 }
