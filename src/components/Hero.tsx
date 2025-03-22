@@ -1,4 +1,3 @@
-
 import { FadeIn, FadeInUp } from './Transitions';
 import { ArrowDown } from 'lucide-react';
 import { useEffect, useRef } from 'react';
@@ -23,7 +22,6 @@ const Hero = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Even more simplified particles
     const particles: { 
       x: number; 
       y: number; 
@@ -33,10 +31,8 @@ const Hero = () => {
       speedY: number;
     }[] = [];
     
-    // Further reduced particle count
     const particleCount = 30;
     
-    // Simpler color palette - just one color with various opacities
     const color = `hsla(250, 80%, 60%, 0.3)`;
 
     for (let i = 0; i < particleCount; i++) {
@@ -55,7 +51,6 @@ const Hero = () => {
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Minimal background
       ctx.fillStyle = 'rgba(246, 246, 252, 0.01)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
@@ -63,7 +58,6 @@ const Hero = () => {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
         
-        // Simple boundary checks
         if (particle.x < 0 || particle.x > canvas.width) {
           particle.speedX *= -1;
         }
@@ -72,7 +66,6 @@ const Hero = () => {
           particle.speedY *= -1;
         }
         
-        // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
@@ -97,7 +90,6 @@ const Hero = () => {
         style={{ pointerEvents: 'none' }}
       />
       
-      {/* Simple gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent z-0" />
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
@@ -108,13 +100,9 @@ const Hero = () => {
                 {"BIENVENUE SUR MON PORTFOLIO".split('').map((letter, index) => (
                   <span 
                     key={index} 
-                    className="inline-block transform transition-all duration-700 hover:text-primary"
+                    className="inline-block animate-pulse-slow hover:text-primary"
                     style={{
-                      animationName: 'bounce',
-                      animationDuration: '1s',
-                      animationDelay: `${index * 0.05}s`,
-                      animationFillMode: 'both',
-                      animationTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                      animationDelay: `${index * 0.1}s`,
                     }}
                   >
                     {letter === ' ' ? '\u00A0' : letter}
@@ -125,11 +113,9 @@ const Hero = () => {
           </div>
           
           <div className="relative mb-12">
-            {/* Simplified name animation */}
             <h1 className="heading-xl bg-gradient-to-r from-primary via-accent to-indigo-500 bg-clip-text text-transparent">
               Younes El Mourabit
             </h1>
-            {/* Subtle glow - simplified */}
             <div className="absolute inset-0 bg-primary/10 filter blur-xl opacity-40" />
           </div>
           
