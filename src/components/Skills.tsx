@@ -1,4 +1,3 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield, FileCode, Paintbrush, Braces, FileBadge, Hash, PanelLeft, Coffee } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -43,7 +42,7 @@ const TechSkillCard = ({
   delay = 0
 }: { 
   name: string;
-  icon: string;
+  icon?: string;
   techIcon?: LucideIcon;
   imageSrc?: string;
   delay?: number;
@@ -57,11 +56,6 @@ const TechSkillCard = ({
           ) : (
             TechIcon && <TechIcon size={28} className="text-primary" />
           )}
-        </div>
-        <div className="bg-code-bg rounded-lg p-4 mb-4 w-full overflow-hidden">
-          <pre className="text-sm text-code-text font-mono">
-            <code>{icon}</code>
-          </pre>
         </div>
         <h3 className="text-lg font-display font-semibold">{name}</h3>
       </div>
@@ -108,97 +102,30 @@ const Skills = () => {
   const techSkills = [
     {
       name: "HTML",
-      icon: `<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>`,
       techIcon: FileCode
     },
     {
       name: "CSS",
-      icon: `.container {
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(
-    45deg, #ff8a00, #e52e71
-  );
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}`,
       techIcon: Paintbrush
     },
     {
       name: "JavaScript",
-      icon: `function animate() {
-  const element = document.querySelector('.box');
-  element.classList.add('animated');
-  
-  setTimeout(() => {
-    element.classList.remove('animated');
-  }, 1000);
-}`,
       techIcon: Braces
     },
     {
       name: "React",
-      icon: `function Counter() {
-  const [count, setCount] = useState(0);
-  
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>
-        Increment
-      </button>
-    </div>
-  );
-}`,
       techIcon: Code
     },
     {
       name: "PHP",
-      icon: `<?php
-function connect() {
-  $host = "localhost";
-  $user = "admin";
-  $pass = "password";
-  $db = "my_database";
-  
-  $conn = new mysqli($host, $user, $pass, $db);
-  return $conn;
-}
-?>`,
       techIcon: FileBadge
     },
     {
       name: "Python",
-      icon: `def factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n-1)
-        
-# Calculate factorial of 5
-result = factorial(5)
-print(f"Factorial: {result}")`,
       imageSrc: "/lovable-uploads/b011401b-9965-4e48-8a0c-1c4c159f70b4.png"
     },
     {
       name: "Java",
-      icon: `public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-        
-        for (int i = 0; i < 5; i++) {
-            System.out.println(i);
-        }
-    }
-}`,
       techIcon: Coffee
     }
   ];
@@ -257,7 +184,6 @@ print(f"Factorial: {result}")`,
                     <TechSkillCard
                       key={index}
                       name={skill.name}
-                      icon={skill.icon}
                       techIcon={skill.techIcon}
                       imageSrc={skill.imageSrc}
                     />
