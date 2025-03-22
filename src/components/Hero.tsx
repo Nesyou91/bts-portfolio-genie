@@ -208,13 +208,13 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6 z-10 py-12 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <FadeInDown delay={150}>
-            <h2 className="text-2xl md:text-3xl font-bold text-accent mb-6 tracking-wider animate-float">
+            <h2 className="text-2xl md:text-3xl font-impact text-accent mb-6 tracking-wider animate-float uppercase">
               BIENVENUE SUR MON PORTFOLIO
             </h2>
           </FadeInDown>
           
           <FadeInUp delay={200}>
-            <h1 className="heading-xl mb-6 bg-gradient-to-r from-primary via-accent to-purple-600 bg-clip-text text-transparent animate-morph-gradient bg-[size:200%_200%]">
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-purple-600 bg-clip-text text-transparent animate-morph-gradient bg-[size:200%_200%] tracking-tight">
               Younes El Mourabit
             </h1>
           </FadeInUp>
@@ -232,7 +232,7 @@ const Hero = () => {
           href="#skills" 
           className="flex flex-col items-center justify-center text-sm text-foreground/50 hover:text-primary transition-colors"
         >
-          <span className="mb-2">Découvrir</span>
+          <span className="mb-2 font-medium">Découvrir</span>
           <ArrowDown className="animate-bounce" size={20} />
         </a>
       </FadeIn>
