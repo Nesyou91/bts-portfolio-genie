@@ -1,3 +1,4 @@
+
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield, FileCode, Settings, Laptop, UserCheck, BrainCircuit, Binary } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -57,8 +58,6 @@ const TechSkillCard = ({
 };
 
 const Skills = () => {
-  const [activeTab, setActiveTab] = useState("general");
-  
   const skills = [
     {
       icon: Code,
@@ -138,53 +137,48 @@ const Skills = () => {
           </FadeInUp>
         </div>
         
-        {/* Tabs Section */}
-        <FadeInUp delay={300}>
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-md mx-auto">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="general">Compétences générales</TabsTrigger>
-              <TabsTrigger value="dev">
-                <FileCode className="mr-2" size={16} />
+        <div className="max-w-6xl mx-auto">
+          <FadeInUp delay={100}>
+            <div className="glass p-6 rounded-lg max-w-3xl mx-auto mb-8">
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">
+                <FileCode className="inline-block mr-2" size={20} />
                 <span>Développement 👨‍💻</span>
-              </TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="general">
-              <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                {skills.map((skill, index) => (
-                  <SkillCard
-                    key={index}
-                    icon={skill.icon}
-                    title={skill.title}
-                    description={skill.description}
-                  />
-                ))}
-              </StaggeredChildren>
-            </TabsContent>
-            
-            <TabsContent value="dev">
-              <FadeInUp delay={100}>
-                <div className="glass p-6 rounded-lg max-w-3xl mx-auto mb-8 mt-6">
-                  <p className="text-center text-foreground/70">
-                    Ces compétences techniques ont été acquises durant ma formation en BTS SIO option SLAM,
-                    par le biais de projets personnels et lors de mes stages en entreprise.
-                    L'apprentissage continu et l'auto-formation font partie intégrante de ma démarche professionnelle.
-                  </p>
-                </div>
-              </FadeInUp>
-              
-              <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {techSkills.map((skill, index) => (
-                  <TechSkillCard
-                    key={index}
-                    name={skill.name}
-                    imageSrc={skill.imageSrc}
-                  />
-                ))}
-              </StaggeredChildren>
-            </TabsContent>
-          </Tabs>
-        </FadeInUp>
+              </h3>
+              <p className="text-center text-foreground/70">
+                Ces compétences techniques ont été acquises durant ma formation en BTS SIO option SLAM,
+                par le biais de projets personnels et lors de mes stages en entreprise.
+                L'apprentissage continu et l'auto-formation font partie intégrante de ma démarche professionnelle.
+              </p>
+            </div>
+          </FadeInUp>
+          
+          <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skills.map((skill, index) => (
+              <SkillCard
+                key={index}
+                icon={skill.icon}
+                title={skill.title}
+                description={skill.description}
+                delay={index * 100}
+              />
+            ))}
+          </StaggeredChildren>
+          
+          <FadeInUp delay={300} className="mt-12 mb-4">
+            <h3 className="text-xl font-display font-semibold text-center">Technologies maîtrisées</h3>
+          </FadeInUp>
+          
+          <StaggeredChildren className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
+            {techSkills.map((skill, index) => (
+              <TechSkillCard
+                key={index}
+                name={skill.name}
+                imageSrc={skill.imageSrc}
+                delay={index * 50}
+              />
+            ))}
+          </StaggeredChildren>
+        </div>
       </div>
     </section>
   );
