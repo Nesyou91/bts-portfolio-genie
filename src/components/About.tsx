@@ -10,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose
 } from "@/components/ui/dialog";
 import {
   Card,
@@ -55,17 +56,17 @@ const About = () => {
                   </p>
                 </div>
                 <div className="ml-4">
+                  <Button 
+                    className="group glass-button overflow-hidden relative" 
+                    variant="secondary"
+                    onClick={() => setCvDialogOpen(true)}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <FileText className="mr-2 text-primary group-hover:animate-bounce" />
+                    <span>Voir mon CV</span>
+                  </Button>
+                  
                   <Dialog open={cvDialogOpen} onOpenChange={setCvDialogOpen}>
-                    <DialogTrigger asChild>
-                      <Button 
-                        className="group glass-button overflow-hidden relative" 
-                        variant="secondary"
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <FileText className="mr-2 text-primary group-hover:animate-bounce" />
-                        <span>Voir mon CV</span>
-                      </Button>
-                    </DialogTrigger>
                     <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
                       <DialogHeader>
                         <DialogTitle className="text-center text-2xl mb-4">CV - Younès EL MOURABIT</DialogTitle>
@@ -191,6 +192,10 @@ const About = () => {
                           </div>
                         </div>
                       </div>
+                      
+                      <DialogClose asChild>
+                        <Button className="mt-6 mx-auto block" variant="secondary">Fermer</Button>
+                      </DialogClose>
                     </DialogContent>
                   </Dialog>
                 </div>
