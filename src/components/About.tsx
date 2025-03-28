@@ -21,6 +21,7 @@ import {
 const About = () => {
   const [isSisrOpen, setIsSisrOpen] = useState(false);
   const [isSlamOpen, setIsSlamOpen] = useState(false);
+  const [cvDialogOpen, setCvDialogOpen] = useState(false);
 
   return (
     <section id="about" className="section-padding bg-gradient-to-b from-background/90 to-primary/5 relative overflow-hidden py-20">
@@ -54,7 +55,7 @@ const About = () => {
                   </p>
                 </div>
                 <div className="ml-4">
-                  <Dialog>
+                  <Dialog open={cvDialogOpen} onOpenChange={setCvDialogOpen}>
                     <DialogTrigger asChild>
                       <Button 
                         className="group glass-button overflow-hidden relative" 
