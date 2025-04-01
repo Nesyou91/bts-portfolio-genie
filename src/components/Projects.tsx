@@ -84,14 +84,7 @@ const ProjectCard = ({
 
 const Projects = () => {
   const projects = [
-    {
-      title: "Application E-commerce",
-      description: "Application e-commerce spécialisée dans la vente de savons artisanaux et produits cosmétiques naturels. Développée avec React et intégrant un système de paiement sécurisé, gestion des stocks et suivi des commandes.",
-      tags: ["React", "Node.js", "MongoDB", "API REST", "Stripe"],
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      repoUrl: "https://github.com/Nesyou91/SavonApp",
-      liveUrl: "#"
-    }
+    // The e-commerce application project has been removed
   ];
 
   return (
@@ -112,20 +105,26 @@ const Projects = () => {
           </FadeInUp>
         </div>
 
-        <StaggeredChildren staggerDelay={300} className="mt-16">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              tags={project.tags}
-              image={project.image}
-              repoUrl={project.repoUrl}
-              liveUrl={project.liveUrl}
-              reverse={index % 2 !== 0}
-            />
-          ))}
-        </StaggeredChildren>
+        {projects.length > 0 ? (
+          <StaggeredChildren staggerDelay={300} className="mt-16">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                tags={project.tags}
+                image={project.image}
+                repoUrl={project.repoUrl}
+                liveUrl={project.liveUrl}
+                reverse={index % 2 !== 0}
+              />
+            ))}
+          </StaggeredChildren>
+        ) : (
+          <FadeInUp delay={300} className="text-center">
+            <p className="text-foreground/70">Aucun projet à afficher pour le moment.</p>
+          </FadeInUp>
+        )}
 
         <FadeInUp delay={500} className="text-center mt-12">
           <a href="#contact" className="inline-flex items-center gap-2 text-primary hover:underline">
