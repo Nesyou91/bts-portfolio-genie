@@ -89,7 +89,7 @@ const Projects = () => {
       description: "Application e-commerce spécialisée dans la vente de savons artisanaux et produits cosmétiques naturels. Développée avec React et intégrant un système de paiement sécurisé, gestion des stocks et suivi des commandes.",
       tags: ["React", "Node.js", "MongoDB", "API REST", "Stripe"],
       image: "https://images.unsplash.com/photo-1607006344380-b6775a0824ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      repoUrl: "#",
+      repoUrl: "https://github.com/Nesyou91/SavonApp",
       liveUrl: "#"
     }
   ];
