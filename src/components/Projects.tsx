@@ -85,11 +85,11 @@ const ProjectCard = ({
 const Projects = () => {
   const projects = [
     {
-      title: "Savon App",
+      title: "Application E-commerce",
       description: "Application e-commerce spécialisée dans la vente de savons artisanaux et produits cosmétiques naturels. Développée avec React et intégrant un système de paiement sécurisé, gestion des stocks et suivi des commandes.",
       tags: ["React", "Node.js", "MongoDB", "API REST", "Stripe"],
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      repoUrl: "https://github.com/Nesyou91/SavonApp",
+      repoUrl: "#",
       liveUrl: "#"
     }
   ];
