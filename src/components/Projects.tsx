@@ -85,26 +85,10 @@ const ProjectCard = ({
 const Projects = () => {
   const projects = [
     {
-      title: "Système de gestion d'entreprise",
-      description: "Application de gestion complète pour PME, incluant gestion des clients, facturation, inventaire et reporting. Développée avec Java et MySQL pour une utilisation en interne.",
-      tags: ["Java", "JavaFX", "MySQL", "JDBC", "Reporting"],
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      repoUrl: "#",
-      liveUrl: "#"
-    },
-    {
-      title: "Plateforme collaborative en ligne",
-      description: "Solution web permettant la collaboration entre équipes distantes, avec gestion de documents, messagerie instantanée et suivi de projets. Réalisée en PHP avec le framework Laravel.",
-      tags: ["PHP", "Laravel", "MySQL", "JavaScript", "WebSockets"],
-      image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      repoUrl: "#",
-      liveUrl: "#"
-    },
-    {
-      title: "Application mobile de gestion de tâches",
-      description: "Application cross-platform permettant de gérer des tâches, définir des priorités et suivre l'avancement des projets. Développée avec React Native et Firebase.",
-      tags: ["React Native", "Firebase", "Redux", "JavaScript", "Mobile"],
-      image: "https://images.unsplash.com/photo-1545235617-7a424c1a60cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Savon App",
+      description: "Application e-commerce spécialisée dans la vente de savons artisanaux et produits cosmétiques naturels. Développée avec React et intégrant un système de paiement sécurisé, gestion des stocks et suivi des commandes.",
+      tags: ["React", "Node.js", "MongoDB", "API REST", "Stripe"],
+      image: "https://images.unsplash.com/photo-1607006344380-b6775a0824ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       repoUrl: "#",
       liveUrl: "#"
     }
