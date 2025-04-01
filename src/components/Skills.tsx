@@ -1,4 +1,3 @@
-
 import { FadeInUp, StaggeredChildren } from './Transitions';
 import { Code, Server, Database, Layout, Globe, Shield, FileCode, Settings, Laptop, UserCheck, BrainCircuit, Binary } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -73,11 +72,6 @@ const Skills = () => {
       icon: Laptop,
       title: "Développement web avancé",
       description: "Maîtrise des frameworks front-end (React, Angular) et back-end (Laravel, Spring)."
-    },
-    {
-      icon: UserCheck,
-      title: "Interfaces utilisateur",
-      description: "Conception d'interfaces ergonomiques et accessibles. Respect des normes d'UX/UI et adaptation aux besoins spécifiques des utilisateurs."
     }
   ];
 
