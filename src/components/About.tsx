@@ -10,7 +10,6 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogClose
 } from "@/components/ui/dialog";
 import {
   Card,
@@ -56,151 +55,148 @@ const About = () => {
                   </p>
                 </div>
                 <div className="ml-4">
-                  <Button 
-                    className="group glass-button overflow-hidden relative" 
-                    variant="secondary"
-                    onClick={() => setCvDialogOpen(true)}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <FileText className="mr-2 text-primary group-hover:animate-bounce" />
-                    <span>Voir mon CV</span>
-                  </Button>
+                  <Dialog open={cvDialogOpen} onOpenChange={setCvDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button 
+                        className="group glass-button overflow-hidden relative" 
+                        variant="secondary"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <FileText className="mr-2 text-primary group-hover:animate-bounce" />
+                        <span>Voir mon CV</span>
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle className="text-center text-2xl mb-4">CV - Younès EL MOURABIT</DialogTitle>
+                      </DialogHeader>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 print:gap-0">
+                        <div className="space-y-8 border-r border-gray-200 pr-8">
+                          <div className="text-center md:text-left">
+                            <h1 className="text-3xl font-bold uppercase tracking-tight mb-2">YOUNÈS</h1>
+                            <h2 className="text-2xl font-bold uppercase tracking-tight">EL MOURABIT</h2>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-xl font-medium text-primary border-b pb-2 mb-4 uppercase flex items-center justify-center md:justify-start">
+                              <span className="border-b-2 border-primary pb-1">À PROPOS</span>
+                            </h3>
+                            <div className="space-y-3">
+                              <div className="flex items-center">
+                                <span className="w-6">📧</span>
+                                <span>nesyouelmou@gmail.com</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="w-6">🏠</span>
+                                <span>19 boulevard aguado</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="w-6">🎂</span>
+                                <span>Né le 11/11/2004</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="w-6">📍</span>
+                                <span>Évry</span>
+                              </div>
+                              <div className="flex items-center">
+                                <span className="w-6">📞</span>
+                                <span>07 83 22 24 12</span>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-xl font-medium text-primary border-b pb-2 mb-4 uppercase flex items-center justify-center md:justify-start">
+                              <span className="border-b-2 border-primary pb-1">CENTRES D'INTÉRÊT</span>
+                            </h3>
+                            
+                            <div className="mb-4">
+                              <h4 className="font-semibold mb-2">Langages</h4>
+                              <ul className="list-none space-y-1">
+                                <li>■ PHP</li>
+                                <li>■ Kotlin</li>
+                                <li>■ Python</li>
+                                <li>■ Java</li>
+                                <li>■ JavaScript</li>
+                                <li>■ HTML</li>
+                              </ul>
+                            </div>
+                            
+                            <div>
+                              <h4 className="font-semibold mb-2">Sport</h4>
+                              <ul className="list-none space-y-1">
+                                <li>■ Football</li>
+                                <li>■ Basket-ball</li>
+                                <li>■ Tennis</li>
+                                <li>■ Natation</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-8">
+                          <div>
+                            <h3 className="text-xl font-medium text-[#20B2AA] border-b pb-2 mb-4 uppercase relative">
+                              <div className="flex justify-center">
+                                <span className="border-b-2 border-[#20B2AA] pb-1">DIPLÔMES ET FORMATIONS</span>
+                              </div>
+                            </h3>
+                            
+                            <div className="space-y-6">
+                              <div>
+                                <div className="font-bold">BTS SIO OPTION SLAM <span className="font-normal text-gray-600">De septembre 2023 à juin 2025</span></div>
+                                <div className="text-[#20B2AA]">Lycée Léonard de Vinci</div>
+                                <div>Melun</div>
+                              </div>
+                              
+                              <div>
+                                <div className="font-bold">Baccalauréat Technologique STMG <span className="font-normal text-gray-600">De septembre 2021 à juillet 2022</span></div>
+                                <div className="text-[#20B2AA]">Lycée Parc des loges</div>
+                                <div>Évry</div>
+                                <div>Option SIG</div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-xl font-medium text-[#20B2AA] border-b pb-2 mb-4 uppercase relative">
+                              <div className="flex justify-center">
+                                <span className="border-b-2 border-[#20B2AA] pb-1">EXPÉRIENCES PROFESSIONNELLES</span>
+                              </div>
+                            </h3>
+                            
+                            <div className="space-y-6">
+                              <div>
+                                <div className="font-bold">Stage – Refonte et mise en page d'un site web sous WordPress <span className="font-normal text-gray-600">De janvier 2025 à février 2025</span></div>
+                                <div className="text-[#20B2AA]">Omac</div>
+                                <div>Torcy</div>
+                                <div className="mt-2">
+                                  Refonte du site d'une association : amélioration du design, mise en page des contenus, personnalisation du thème et optimisation de la navigation.
+                                </div>
+                              </div>
+                              
+                              <div>
+                                <div className="font-bold">Stage de 1ère année BTS SIO <span className="font-normal text-gray-600">De mai 2024 à juin 2024</span></div>
+                                <div className="text-[#20B2AA]">Linksi</div>
+                                <div>Lens</div>
+                                <div className="font-medium mt-2">Développeur Web – Conception de site pour un club de football</div>
+                                <div className="mt-1">
+                                  Création d'un site web avec formulaire d'inscription, présentation des équipes et calendrier des matchs. Développement d'une interface moderne, intuitive et responsive.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <Button className="mt-6 mx-auto block" variant="secondary" onClick={() => setCvDialogOpen(false)}>Fermer</Button>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
             </div>
           </FadeInUp>
-
-          {/* CV Dialog */}
-          <Dialog open={cvDialogOpen} onOpenChange={setCvDialogOpen}>
-            <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="text-center text-2xl mb-4">CV - Younès EL MOURABIT</DialogTitle>
-              </DialogHeader>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 print:gap-0">
-                <div className="space-y-8 border-r border-gray-200 pr-8">
-                  <div className="text-center md:text-left">
-                    <h1 className="text-3xl font-bold uppercase tracking-tight mb-2">YOUNÈS</h1>
-                    <h2 className="text-2xl font-bold uppercase tracking-tight">EL MOURABIT</h2>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-primary border-b pb-2 mb-4 uppercase flex items-center justify-center md:justify-start">
-                      <span className="border-b-2 border-primary pb-1">À PROPOS</span>
-                    </h3>
-                    <div className="space-y-3">
-                      <div className="flex items-center">
-                        <span className="w-6">📧</span>
-                        <span>nesyouelmou@gmail.com</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="w-6">🏠</span>
-                        <span>19 boulevard aguado</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="w-6">🎂</span>
-                        <span>Né le 11/11/2004</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="w-6">📍</span>
-                        <span>Évry</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="w-6">📞</span>
-                        <span>07 83 22 24 12</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-primary border-b pb-2 mb-4 uppercase flex items-center justify-center md:justify-start">
-                      <span className="border-b-2 border-primary pb-1">CENTRES D'INTÉRÊT</span>
-                    </h3>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-semibold mb-2">Langages</h4>
-                      <ul className="list-none space-y-1">
-                        <li>■ PHP</li>
-                        <li>■ Kotlin</li>
-                        <li>■ Python</li>
-                        <li>■ Java</li>
-                        <li>■ JavaScript</li>
-                        <li>■ HTML</li>
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold mb-2">Sport</h4>
-                      <ul className="list-none space-y-1">
-                        <li>■ Football</li>
-                        <li>■ Basket-ball</li>
-                        <li>■ Tennis</li>
-                        <li>■ Natation</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-xl font-medium text-[#20B2AA] border-b pb-2 mb-4 uppercase relative">
-                      <div className="flex justify-center">
-                        <span className="border-b-2 border-[#20B2AA] pb-1">DIPLÔMES ET FORMATIONS</span>
-                      </div>
-                    </h3>
-                    
-                    <div className="space-y-6">
-                      <div>
-                        <div className="font-bold">BTS SIO OPTION SLAM <span className="font-normal text-gray-600">De septembre 2023 à juin 2025</span></div>
-                        <div className="text-[#20B2AA]">Lycée Léonard de Vinci</div>
-                        <div>Melun</div>
-                      </div>
-                      
-                      <div>
-                        <div className="font-bold">Baccalauréat Technologique STMG <span className="font-normal text-gray-600">De septembre 2021 à juillet 2022</span></div>
-                        <div className="text-[#20B2AA]">Lycée Parc des loges</div>
-                        <div>Évry</div>
-                        <div>Option SIG</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium text-[#20B2AA] border-b pb-2 mb-4 uppercase relative">
-                      <div className="flex justify-center">
-                        <span className="border-b-2 border-[#20B2AA] pb-1">EXPÉRIENCES PROFESSIONNELLES</span>
-                      </div>
-                    </h3>
-                    
-                    <div className="space-y-6">
-                      <div>
-                        <div className="font-bold">Stage – Refonte et mise en page d'un site web sous WordPress <span className="font-normal text-gray-600">De janvier 2025 à février 2025</span></div>
-                        <div className="text-[#20B2AA]">Omac</div>
-                        <div>Torcy</div>
-                        <div className="mt-2">
-                          Refonte du site d'une association : amélioration du design, mise en page des contenus, personnalisation du thème et optimisation de la navigation.
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <div className="font-bold">Stage de 1ère année BTS SIO <span className="font-normal text-gray-600">De mai 2024 à juin 2024</span></div>
-                        <div className="text-[#20B2AA]">Linksi</div>
-                        <div>Lens</div>
-                        <div className="font-medium mt-2">Développeur Web – Conception de site pour un club de football</div>
-                        <div className="mt-1">
-                          Création d'un site web avec formulaire d'inscription, présentation des équipes et calendrier des matchs. Développement d'une interface moderne, intuitive et responsive.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <DialogClose asChild>
-                <Button className="mt-6 mx-auto block" variant="secondary">Fermer</Button>
-              </DialogClose>
-            </DialogContent>
-          </Dialog>
 
           <FadeInUp delay={200}>
             <div className="glass-card p-6 md:p-8 rounded-xl relative overflow-hidden">
