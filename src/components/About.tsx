@@ -1,4 +1,3 @@
-
 import { FadeIn, FadeInUp } from './Transitions';
 import { User, GraduationCap, Code, Server, FileText } from 'lucide-react';
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
@@ -73,7 +72,6 @@ const About = () => {
                       </DialogHeader>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 print:gap-0">
-                        {/* Left Column */}
                         <div className="space-y-8 border-r border-gray-200 pr-8">
                           <div className="text-center md:text-left">
                             <h1 className="text-3xl font-bold uppercase tracking-tight mb-2">YOUNÈS</h1>
@@ -137,7 +135,6 @@ const About = () => {
                           </div>
                         </div>
                         
-                        {/* Right Column */}
                         <div className="space-y-8">
                           <div>
                             <h3 className="text-xl font-medium text-[#20B2AA] border-b pb-2 mb-4 uppercase relative">

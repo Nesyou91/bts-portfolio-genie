@@ -86,8 +86,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Téléphone",
-      info: "+33 6 12 34 56 78",
-      link: "tel:+33612345678"
+      info: "07 83 22 24 12",
+      link: "tel:0783222412"
     },
     {
       icon: MapPin,
