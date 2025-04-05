@@ -89,7 +89,7 @@ const Projects = () => {
       description: "",
       tags: [],
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      repoUrl: "https://github.com/Nesyou91/SavonApp",
+      repoUrl: "https://github.com/Nesyou91/n-savon-app",
       liveUrl: "#"
     },
     {
