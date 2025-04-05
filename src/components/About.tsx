@@ -52,7 +52,7 @@ const About = () => {
                     Je suis actuellement étudiant au lycée Léonard de Vinci 🗺️ en deuxième année de BTS SIO (Services Informatiques aux Organisations) dans l'option SLAM (Solutions Logicielles et Applications Métier), qui en gros est une option spécialisée pour le développement 💻
                   </p>
                   <p className="text-lg leading-relaxed">
-                    Toujours en cours d'étude 🎓, je vous propose sur ce portfolio de découvrir les différentes études et projets professionnels que j'ai entrepris au cours de ma carrière.
+                    Toujours en cours d'études 🎓, je vous propose sur ce portfolio de découvrir les différentes études et projets professionnels que j'ai entrepris au cours de ma carrière.
                   </p>
                 </div>
                 <div className="ml-4">
@@ -114,14 +114,14 @@ const About = () => {
                             </h3>
                             
                             <div className="mb-4">
-                              <h4 className="font-semibold mb-2">Languages</h4>
+                              <h4 className="font-semibold mb-2">Langages</h4>
                               <ul className="list-none space-y-1">
-                                <li>■ Php</li>
+                                <li>■ PHP</li>
                                 <li>■ Kotlin</li>
                                 <li>■ Python</li>
                                 <li>■ Java</li>
-                                <li>■ Javascript</li>
-                                <li>■ Html</li>
+                                <li>■ JavaScript</li>
+                                <li>■ HTML</li>
                               </ul>
                             </div>
                             
@@ -149,7 +149,7 @@ const About = () => {
                             <div className="space-y-6">
                               <div>
                                 <div className="font-bold">BTS SIO OPTION SLAM <span className="font-normal text-gray-600">De septembre 2023 à juin 2025</span></div>
-                                <div className="text-[#20B2AA]">Lycée Leonard vinci</div>
+                                <div className="text-[#20B2AA]">Lycée Léonard de Vinci</div>
                                 <div>Melun</div>
                               </div>
                               
@@ -180,7 +180,7 @@ const About = () => {
                               </div>
                               
                               <div>
-                                <div className="font-bold">Stage de 1er année BTS SIO <span className="font-normal text-gray-600">De mai 2024 à juin 2024</span></div>
+                                <div className="font-bold">Stage de 1ère année BTS SIO <span className="font-normal text-gray-600">De mai 2024 à juin 2024</span></div>
                                 <div className="text-[#20B2AA]">Linksi</div>
                                 <div>Lens</div>
                                 <div className="font-medium mt-2">Développeur Web – Conception de site pour un club de football</div>
@@ -212,7 +212,7 @@ const About = () => {
                 <div className="bg-primary/10 p-2 rounded-full animate-float">
                   <GraduationCap size={24} className="text-primary" />
                 </div>
-                <h3 className="text-xl font-display font-semibold ml-3">Qu'est ce que le BTS SIO 🎓 ?</h3>
+                <h3 className="text-xl font-display font-semibold ml-3">Qu'est-ce que le BTS SIO 🎓 ?</h3>
               </div>
               
               <p className="text-lg leading-relaxed mb-6">
@@ -220,7 +220,7 @@ const About = () => {
               </p>
               
               <p className="text-lg leading-relaxed mb-6">
-                Le Brevet de Technicien Supérieur aux Services Informatiques aux Organisations (BTS SIO), s'adresse à ceux qui souhaitent se former en deux ans aux métiers d'administrateur réseau ou de développeur. Pour par la suite intégré directement le marché du travail ou continuer des études, dans le domaine de l'informatique.
+                Le Brevet de Technicien Supérieur aux Services Informatiques aux Organisations (BTS SIO), s'adresse à ceux qui souhaitent se former en deux ans aux métiers d'administrateur réseau ou de développeur. Pour par la suite intégrer directement le marché du travail ou continuer des études, dans le domaine de l'informatique.
               </p>
               
               <h4 className="text-lg font-semibold mb-4">Le BTS SIO propose deux spécialités :</h4>

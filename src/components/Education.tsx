@@ -1,3 +1,4 @@
+
 import { FadeInUp, FadeIn, StaggeredChildren } from './Transitions';
 import { Medal, GraduationCap, Calendar, Briefcase } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
@@ -52,7 +53,7 @@ const Education = () => {
     },
     {
       icon: Briefcase,
-      title: "Stage de 1er année BTS SIO",
+      title: "Stage de 1ère année BTS SIO",
       period: "mai 2024 - juin 2024",
       institution: "Linksi, Lens",
       description: "Développeur Web – Conception de site pour un club de football. Création d'un site web avec formulaire d'inscription, présentation des équipes et calendrier des matchs. Développement d'une interface moderne, intuitive et responsive."
