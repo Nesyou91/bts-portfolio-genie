@@ -216,7 +216,7 @@ const About = () => {
               </div>
               
               <p className="text-lg leading-relaxed mb-6">
-                Avant de commencer à parler de moi, je vous propose de présenter en premier lieu ma filière dont je suis affecté
+                Ma filière dont je suis affecté
               </p>
               
               <p className="text-lg leading-relaxed mb-6">
