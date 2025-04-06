@@ -55,14 +55,15 @@ const About = () => {
                   </p>
                 </div>
                 <div className="ml-4">
+                  {/* New CV Button and Dialog Implementation */}
                   <Dialog open={cvDialogOpen} onOpenChange={setCvDialogOpen}>
                     <DialogTrigger asChild>
                       <Button 
-                        className="group glass-button overflow-hidden relative" 
+                        className="group relative overflow-hidden glass-button" 
                         variant="secondary"
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <FileText className="mr-2 text-primary group-hover:animate-bounce" />
+                        <FileText className="mr-2 text-primary" />
                         <span>Voir mon CV</span>
                       </Button>
                     </DialogTrigger>
@@ -72,7 +73,7 @@ const About = () => {
                       </DialogHeader>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 print:gap-0">
-                        <div className="space-y-8 border-r border-gray-200 pr-8">
+                        <div className="space-y-8 md:border-r md:border-gray-200 md:pr-8">
                           <div className="text-center md:text-left">
                             <h1 className="text-3xl font-bold uppercase tracking-tight mb-2">YOUNÈS</h1>
                             <h2 className="text-2xl font-bold uppercase tracking-tight">EL MOURABIT</h2>
@@ -190,7 +191,13 @@ const About = () => {
                         </div>
                       </div>
                       
-                      <Button className="mt-6 mx-auto block" variant="secondary" onClick={() => setCvDialogOpen(false)}>Fermer</Button>
+                      <Button 
+                        className="mt-6 mx-auto block" 
+                        variant="secondary" 
+                        onClick={() => setCvDialogOpen(false)}
+                      >
+                        Fermer
+                      </Button>
                     </DialogContent>
                   </Dialog>
                 </div>
