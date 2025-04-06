@@ -62,7 +62,7 @@ const Skills = () => {
     {
       icon: Code,
       title: "Développement d'applications",
-      description: "Conception et réalisation d'applications en utilisant les langages et frameworks modernes (Java, C#, PHP, JavaScript)."
+      description: "Conception et réalisation d'applications en utilisant les langages et frameworks modernes (kotlin, python, PHP, html)."
     },
     {
       icon: Database,
