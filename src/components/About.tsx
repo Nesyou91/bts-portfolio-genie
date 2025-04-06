@@ -55,7 +55,7 @@ const About = () => {
                   </p>
                 </div>
                 <div className="ml-4">
-                  {/* New CV Button and Dialog Implementation */}
+                  {/* CV Button and Dialog Implementation */}
                   <Dialog open={cvDialogOpen} onOpenChange={setCvDialogOpen}>
                     <DialogTrigger asChild>
                       <Button 
