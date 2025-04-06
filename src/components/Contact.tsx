@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { FadeInUp } from './Transitions';
 import { Mail, Phone, MapPin, Send, LucideIcon } from 'lucide-react';
@@ -80,8 +79,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      info: "contact@btssio-portfolio.fr",
-      link: "mailto:contact@btssio-portfolio.fr"
+      info: "younes.elmourabi@gmail.com",
+      link: "mailto:younes.elmourabi@gmail.com"
     },
     {
       icon: Phone,
