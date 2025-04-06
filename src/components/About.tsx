@@ -114,7 +114,7 @@ const About = () => {
                 </div>
                 <div className="ml-4">
                   {/* CV Button - Modified to be a direct link */}
-                  <a href="/chemin-vers-votre-cv.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="../../CV_2025-03-14_Younès_El mourabit.pdf" target="_blank" rel="noopener noreferrer">
                     <Button 
                       className="group relative overflow-hidden glass-button" 
                       variant="secondary"
