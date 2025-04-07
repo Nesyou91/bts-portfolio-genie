@@ -94,8 +94,8 @@ const Projects = () => {
     },
     {
       title: "SavonAPI",
-      description: "API REST pour l'application SavonApp",
-      tags: ["Node.js", "Express", "MongoDB"],
+      description: "Backend Kotlin/Spring Boot de l'application SavonApp. Il fournit des points de terminaison REST pour gérer les ingrédients et recettes de savon, stocker les données dans MariaDB et effectuer les calculs complexes nécessaires à la formulation (propriétés du savon, quantités d'agents alcalins et d'eau, ajustements selon le taux de surgraissage) pour le frontend Angular.",
+      tags: ["Kotlin", "Spring Boot", "MariaDB", "API REST", "JPA"],
       image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
       repoUrl: "https://github.com/Nesyou91/savonapi",
       liveUrl: null
