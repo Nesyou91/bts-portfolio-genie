@@ -86,8 +86,8 @@ const Projects = () => {
   const projects = [
     {
       title: "SavonApp",
-      description: "",
-      tags: [],
+      description: "Application de formulation de savon artisanal avec un frontend Angular et une API backend Kotlin/Spring Boot. SavonApp permet aux savonniers de créer des recettes en calculant automatiquement les propriétés du savon final (dureté, pouvoir moussant, douceur) à partir d'ingrédients dont les caractéristiques sont stockées en base de données. L'application propose une visualisation graphique des propriétés, calcule les quantités précises d'agents alcalins et d'eau nécessaires, et ajuste les formulations selon le taux de surgraissage souhaité.",
+      tags: ["Angular", "Kotlin", "Spring Boot", "SQL", "API REST"],
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
       repoUrl: "https://github.com/Nesyou91/n-savon-app",
       liveUrl: "#"
